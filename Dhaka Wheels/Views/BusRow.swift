@@ -17,7 +17,7 @@ struct BusRow: View {
                 .scaledToFit()
                 .frame(width: 50)
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(bus.name)
                     .font(.title)
                     .lineLimit(1)
@@ -27,6 +27,8 @@ struct BusRow: View {
                     .font(.subheadline)
             }
             .padding()
+
+            Spacer()
 
             Text(bus.type)
                 .font(.title3)

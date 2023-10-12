@@ -16,13 +16,19 @@ struct BusDetailView: View {
                 .font(.largeTitle)
 
             HStack {
-                Image(systemName: "bus.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100)
-                    .padding()
-
                 VStack {
+                    AsyncImage(url: URL(string: bus.imageUrl)) { image in
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                            .padding()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                }
+
+                VStack(alignment: .leading) {
                     Text("\(bus.startingPoint) - \(bus.endingPoint)")
                     Text("Route No: \(bus.routeNumber)")
                 }
