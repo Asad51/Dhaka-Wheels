@@ -1,10 +1,11 @@
 [
   {
     "name": "Shadin Express",
-    "routeNumber": "2",
+    "routeNumber": "2/A",
     "imageUrl": "https://en.wikipedia.org/wiki/Bus#/media/File:LT_471_(LTZ_1471)_Arriva_London_New_Routemaster_(19522859218).jpg",
     "startingPoint": "Mawa",
     "endingPoint": "Mirpur 12",
-    "stops": ["Mawa", "Rajendrapur", "Kodomtoli", "Keraniganj", "Babu bazar", "Naya bazar", "Golap Shah Mazar", "GPO", "Paltan", "Press Club", "High Court", "Motso Bhaban", "Shahbagh", "Bangla Motor", "Kawran Bazar", "Farmgate", "Khamarbari", "Agargaoi", "Taltola", "Sheorapara", "Kazipara", "Mirpur 10", "Mirpur 11", "Purobi", "Pallabi", "Mirpur 12"]
+    "stops": ["Mawa", "Rajendrapur", "Kodomtoli", "Keraniganj", "Babu bazar", "Naya bazar", "Golap Shah Mazar", "GPO", "Paltan", "Press Club", "High Court", "Motso Bhaban", "Shahbagh", "Bangla Motor", "Kawran Bazar", "Farmgate", "Khamarbari", "Agargaoi", "Taltola", "Sheorapara", "Kazipara", "Mirpur 10", "Mirpur 11", "Purobi", "Pallabi", "Mirpur 12"],
+    "type": "Sitting"
   }
 ]

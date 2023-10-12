@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct BusRow: View {
+    let bus: Bus
+
     var body: some View {
         HStack {
             Image(systemName: "bus.fill")
@@ -16,20 +18,22 @@ struct BusRow: View {
                 .frame(width: 50)
 
             VStack {
-                Text("Bus Name")
+                Text(bus.name)
                     .font(.title)
+                    .lineLimit(1)
+                    
 
-                Text("Source - Destination")
+                Text("\(bus.startingPoint) - \(bus.endingPoint)")
                     .font(.subheadline)
             }
             .padding()
 
-            Text("Type")
+            Text(bus.type)
                 .font(.title3)
         }
     }
 }
 
 #Preview {
-    BusRow()
+    BusRow(bus: Constants.previewBuses[0])
 }

@@ -15,6 +15,9 @@
 		DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF7B2AD84A3500E9834A /* SearchView.swift */; };
 		DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */; };
 		DCC2FF812AD8589700E9834A /* BusList.json in Resources */ = {isa = PBXBuildFile; fileRef = DCC2FF802AD8589700E9834A /* BusList.json */; };
+		DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF832AD858DD00E9834A /* Bus.swift */; };
+		DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF862AD85A3E00E9834A /* Constants.swift */; };
+		DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		DCC2FF7B2AD84A3500E9834A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRow.swift; sourceTree = "<group>"; };
 		DCC2FF802AD8589700E9834A /* BusList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BusList.json; sourceTree = "<group>"; };
+		DCC2FF832AD858DD00E9834A /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		DCC2FF862AD85A3E00E9834A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			children = (
 				DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */,
 				DCC2FF782AD844AE00E9834A /* Views */,
+				DCC2FF822AD858C900E9834A /* Models */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
 				DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */,
 				DCC2FF702AD842EA00E9834A /* Preview Content */,
@@ -83,6 +90,7 @@
 				DCC2FF792AD844EA00E9834A /* HomeView.swift */,
 				DCC2FF7B2AD84A3500E9834A /* SearchView.swift */,
 				DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */,
+				DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -93,6 +101,15 @@
 				DCC2FF802AD8589700E9834A /* BusList.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DCC2FF822AD858C900E9834A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DCC2FF832AD858DD00E9834A /* Bus.swift */,
+				DCC2FF862AD85A3E00E9834A /* Constants.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,10 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCC2FF7A2AD844EA00E9834A /* HomeView.swift in Sources */,
+				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
+				DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */,
 				DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
