@@ -11,6 +11,7 @@ struct SearchView: View {
     @State private var startingLocation: String = ""
     @State private var endingLocation: String = ""
     @State var buses = [Bus]()
+    @State private var filteredBuses = [Bus]()
 
     var body: some View {
         NavigationStack {
@@ -30,8 +31,6 @@ struct SearchView: View {
                             .scaledToFit()
                             .frame(width: 20, height: 40)
                             .padding(.trailing, 5)
-
-
                     }
 
                     VStack {
@@ -40,6 +39,9 @@ struct SearchView: View {
                             .overlay {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.gray)
+                            }
+                            .onChange(of: startingLocation) {
+                                filterBuses()
                             }
 
                         Spacer()
@@ -50,6 +52,9 @@ struct SearchView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.gray)
                             }
+                            .onChange(of: endingLocation) {
+                                filterBuses()
+                            }
                     }
                 }
                 .frame(height: 120)
@@ -59,10 +64,10 @@ struct SearchView: View {
                         .stroke(.gray, lineWidth: 2)
                 }
 
-                Text("Recent Searches")
+                Text("Search results")
                     .font(.title2)
 
-                List(buses, id: \.self) { bus in
+                List(filteredBuses, id: \.self) { bus in
                     NavigationLink {
                         BusDetailView(bus: bus)
                     } label: {
@@ -79,6 +84,14 @@ struct SearchView: View {
             }
             .padding()
         }
+        .onAppear {
+            filteredBuses = buses
+        }
+    }
+
+    private func filterBuses() {
+        print(startingLocation, endingLocation)
+        filteredBuses = buses.filter { $0.stoppages.contains(startingLocation) && $0.stoppages.contains(endingLocation)}
     }
 }
 

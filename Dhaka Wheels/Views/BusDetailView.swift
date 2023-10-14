@@ -41,10 +41,25 @@ struct BusDetailView: View {
                     .stroke(.gray, lineWidth: 2)
             }
 
-            Text("Routes")
-                .font(.title)
+            HStack {
+                Text("Routes")
+                    .font(.title)
+                    .padding(.top)
+                    .foregroundStyle(.blue)
+
+                Button {
+
+                } label: {
+                    Image(systemName: "map.fill")
+                    Text("View in Map")
+                }
+                .font(.title2)
+                .padding(5)
+                .foregroundStyle(.white)
+                .background(.blue)
+                .cornerRadius(10)
                 .padding(.top)
-                .foregroundStyle(.blue)
+            }
 
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {

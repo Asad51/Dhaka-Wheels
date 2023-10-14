@@ -19,6 +19,8 @@
 		DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF862AD85A3E00E9834A /* Constants.swift */; };
 		DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */; };
 		DCCC6C1E2ADA945700E95C2D /* AllBustList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */; };
+		DCCC6C202ADA996C00E95C2D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C1F2ADA996C00E95C2D /* MapView.swift */; };
+		DCCC6C222ADAAC2700E95C2D /* Stopage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stopage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		DCC2FF862AD85A3E00E9834A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailView.swift; sourceTree = "<group>"; };
 		DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBustList.swift; sourceTree = "<group>"; };
+		DCCC6C1F2ADA996C00E95C2D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DCCC6C212ADAAC2700E95C2D /* Stopage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */,
 				DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */,
 				DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */,
+				DCCC6C1F2ADA996C00E95C2D /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC2FF832AD858DD00E9834A /* Bus.swift */,
+				DCCC6C212ADAAC2700E95C2D /* Stopage.swift */,
 				DCC2FF862AD85A3E00E9834A /* Constants.swift */,
 			);
 			path = Models;
@@ -189,10 +195,12 @@
 				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
+				DCCC6C222ADAAC2700E95C2D /* Stopage.swift in Sources */,
 				DCC2FF7A2AD844EA00E9834A /* HomeView.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
 				DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */,
+				DCCC6C202ADA996C00E95C2D /* MapView.swift in Sources */,
 				DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */,
 				DCCC6C1E2ADA945700E95C2D /* AllBustList.swift in Sources */,
 			);

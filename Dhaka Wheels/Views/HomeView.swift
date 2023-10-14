@@ -15,7 +15,7 @@ struct HomeView: View {
                     Label("Search", systemImage: "magnifyingglass")
                 }
 
-            Text("All bus View")
+            AllBustList(buses: Constants.previewBuses.sorted { $0.name < $1.name })
                 .tabItem {
                     Label("All Bus", systemImage: "list.bullet.circle.fill")
                 }
