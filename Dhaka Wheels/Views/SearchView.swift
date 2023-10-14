@@ -74,7 +74,6 @@ struct SearchView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(.gray, lineWidth: 2)
                 }
-                //.navigationTitle("Bus Details")
 
                 Spacer()
             }

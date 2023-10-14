@@ -46,15 +46,33 @@ struct BusDetailView: View {
                 .padding(.top)
                 .foregroundStyle(.blue)
 
-            List(bus.stops, id: \.self) { stop in
-                HStack {
-                    Image(systemName: "arrow.up.arrow.down")
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(Array(bus.stoppages.enumerated()), id: \.element) { i, stoppage in
+                        VStack {
+                            if i == 0 {
+                                Image(systemName: "circle.circle")
+                                    .padding(5)
+                                    .foregroundStyle(.blue, .gray)
+                            } else {
+                                Image(systemName: "arrow.up.arrow.down")
+                                    .padding(5)
+                                    .foregroundStyle(.red, .green)
+                            }
 
-                    Text(stop)
+                            Text(stoppage)
+
+                            if i == bus.stoppages.count - 1 {
+                                Image(systemName: "mappin.and.ellipse")
+                                    .padding(5)
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                    }
                 }
+                .padding()
+                .frame(maxWidth: .infinity)
             }
-            .padding()
-            .listStyle(.plain)
         }
     }
 }

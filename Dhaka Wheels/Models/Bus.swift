@@ -13,6 +13,6 @@ struct Bus: Hashable, Decodable {
     let imageUrl: String
     let startingPoint: String
     let endingPoint: String
-    let stops: [String]
+    let stoppages: [String]
     let type: String
 }

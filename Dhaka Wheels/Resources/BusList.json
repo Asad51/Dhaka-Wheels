@@ -5,7 +5,7 @@
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
         "startingPoint": "Mawa",
         "endingPoint": "Mirpur 12",
-        "stops": [
+        "stoppages": [
             "Mawa",
             "Rajendrapur",
             "Kodomtoli",
@@ -41,7 +41,7 @@
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
         "startingPoint": "Gabtoli",
         "endingPoint": "Demra Staff Quarter",
-        "stops": [
+        "stoppages": [
             "Gabtoli",
             "Technical",
             "Ansar Camp",
@@ -78,7 +78,7 @@
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
         "startingPoint": "Japan Garden City",
         "endingPoint": "Abdullahpur",
-        "stops": [
+        "stoppages": [
             "Japan Garden City",
             "Ring Road",
             "Adabor",
@@ -114,7 +114,7 @@
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
         "startingPoint": "Postagola",
         "endingPoint": "Kamarpara",
-        "stops": [
+        "stoppages": [
             "Postagola",
             "Dholairpar",
             "Jatrabari",
@@ -152,7 +152,7 @@
         "imageUrl": "https://media.istockphoto.com/id/1195259380/photo/white-big-tour-bus-front-left-angle-view-isolated-on-white-background-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=oF1-gH1YKtL4JWG7qsMwLYjPcmG0DN82NNQsdXCqLz8=",
         "startingPoint": "Azimpur",
         "endingPoint": "Kuril Bishwa Road",
-        "stops": [
+        "stoppages": [
             "Azimpur",
             "Eden College",
             "Nilkhet",
