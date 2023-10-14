@@ -1,8 +1,8 @@
 //
-//  Dhaka_WheelsApp.swift
-//  Dhaka Wheels
+//  FirebaseUpdatorApp.swift
+//  FirebaseUpdator
 //
-//  Created by Md. Asadul Islam on 12/10/23.
+//  Created by Md. Asadul Islam on 15/10/23.
 //
 
 import FirebaseCore
@@ -18,14 +18,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
-struct Dhaka_WheelsApp: App {
+struct FirebaseUpdatorApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.light)
         }
     }
 }
