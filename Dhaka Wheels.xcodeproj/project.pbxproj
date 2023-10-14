@@ -39,6 +39,7 @@
 		DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBustList.swift; sourceTree = "<group>"; };
 		DCCC6C1F2ADA996C00E95C2D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DCCC6C212ADAAC2700E95C2D /* Stopage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopage.swift; sourceTree = "<group>"; };
+		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC2FF692AD842E900E9834A /* Dhaka Wheels */,
+				DCD8B5D72ADAFA230039F12F /* README.md */,
 				DCC2FF682AD842E900E9834A /* Products */,
 			);
 			sourceTree = "<group>";
