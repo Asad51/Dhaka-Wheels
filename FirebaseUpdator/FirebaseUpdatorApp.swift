@@ -25,6 +25,7 @@ struct FirebaseUpdatorApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(FirebaseData())
         }
     }
 }

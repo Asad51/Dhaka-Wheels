@@ -8,6 +8,7 @@
 import Foundation
 
 struct Bus: Hashable, Decodable {
+    let id: String
     let name: String
     let routeNumber: String
     let imageUrl: String
