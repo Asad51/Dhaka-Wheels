@@ -20,7 +20,8 @@ struct ContentView: View {
             }
 
             NavigationLink {
-                
+                AddStoppage()
+                    .environmentObject(firebaseData)
             } label: {
                 Text("Add Stoppage")
             }

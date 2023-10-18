@@ -11,8 +11,8 @@ struct AddBus: View {
     @EnvironmentObject private var firebaseData: FirebaseData
     @State private var name: String = ""
     @State private var routeNumber: String = "N/A"
-    @State private var coachType: String = ""
-    @State private var serviceType: String = ""
+    @State private var coachType: String = "Non-AC"
+    @State private var serviceType: String = "Sitting"
     @State private var stoppages: [Stoppage]  = []
     @State private var stoppage: String = ""
 
@@ -20,7 +20,7 @@ struct AddBus: View {
     @State private var showValidationError = false
 
     private var coachTypes: [String] = ["Non-AC", "AC"]
-    private var serviceTypes: [String] = ["Sitting", "Semmi Sitting", "Local"]
+    private var serviceTypes: [String] = ["Sitting", "Semi Sitting", "Local"]
 
     var body: some View {
         VStack {
