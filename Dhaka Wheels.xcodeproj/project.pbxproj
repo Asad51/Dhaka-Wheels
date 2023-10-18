@@ -61,6 +61,10 @@
 		DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
 		DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */; };
 		DCCFA28A2AE044F900D2F741 /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */; };
+		DCCFA28D2AE04D7100D2F741 /* BusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */; };
+		DCCFA28E2AE04D7100D2F741 /* BusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */; };
+		DCCFA2902AE04D8900D2F741 /* StoppageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */; };
+		DCCFA2912AE04D8900D2F741 /* StoppageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */; };
 		DCD8B5D92ADB0AA20039F12F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
 		DCD8B5DC2ADB0B890039F12F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DB2ADB0B890039F12F /* FirebaseAnalytics */; };
 		DCD8B5DE2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DD2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -117,6 +121,8 @@
 		DCCC6C1F2ADA996C00E95C2D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stoppage.swift; sourceTree = "<group>"; };
 		DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
+		DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusViewModel.swift; sourceTree = "<group>"; };
+		DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoppageViewModel.swift; sourceTree = "<group>"; };
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,6 +279,7 @@
 			children = (
 				DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */,
 				DCC2FF782AD844AE00E9834A /* Views */,
+				DCCFA28B2AE04D4C00D2F741 /* ViewModels */,
 				DCC2FF822AD858C900E9834A /* Models */,
 				DCCFA2872AE044D600D2F741 /* Services */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
@@ -328,6 +335,15 @@
 				DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DCCFA28B2AE04D4C00D2F741 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */,
+				DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,10 +516,12 @@
 				DCCFA28A2AE044F900D2F741 /* FirebaseServices.swift in Sources */,
 				DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */,
 				DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */,
+				DCCFA2912AE04D8900D2F741 /* StoppageViewModel.swift in Sources */,
 				DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */,
 				DC689C3D2ADB228F00F03E07 /* ContentView.swift in Sources */,
 				DC689C3B2ADB228F00F03E07 /* FirebaseUpdatorApp.swift in Sources */,
 				DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */,
+				DCCFA28E2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,10 +531,12 @@
 			files = (
 				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
+				DCCFA28D2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
 				DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
 				DCC2FF7A2AD844EA00E9834A /* HomeView.swift in Sources */,
+				DCCFA2902AE04D8900D2F741 /* StoppageViewModel.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
 				DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */,
