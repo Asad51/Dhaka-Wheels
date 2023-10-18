@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Stopage: Decodable {
+struct Stoppage: Hashable, Decodable, Identifiable {
+    let id: String
     let name: String
     let latitude: Double
     let longitude: Double

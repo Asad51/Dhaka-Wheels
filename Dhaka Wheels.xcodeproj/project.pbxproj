@@ -39,6 +39,12 @@
 		DC689C792ADB22DF00F03E07 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DC689C782ADB22DF00F03E07 /* FirebaseStorage */; };
 		DC689C7B2ADB22DF00F03E07 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DC689C7A2ADB22DF00F03E07 /* FirebaseStorageCombine-Community */; };
 		DC689C7C2ADB239E00F03E07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
+		DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC689C7D2ADB254800F03E07 /* AddBus.swift */; };
+		DC689C822ADB2F6100F03E07 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC689C812ADB2F6100F03E07 /* FirebaseData.swift */; };
+		DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF832AD858DD00E9834A /* Bus.swift */; };
+		DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
+		DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */; };
+		DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */; };
 		DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */; };
 		DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF6C2AD842E900E9834A /* ContentView.swift */; };
 		DCC2FF6F2AD842EA00E9834A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */; };
@@ -52,7 +58,9 @@
 		DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */; };
 		DCCC6C1E2ADA945700E95C2D /* AllBustList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */; };
 		DCCC6C202ADA996C00E95C2D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C1F2ADA996C00E95C2D /* MapView.swift */; };
-		DCCC6C222ADAAC2700E95C2D /* Stopage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stopage.swift */; };
+		DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
+		DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */; };
+		DCCFA28A2AE044F900D2F741 /* FirebaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */; };
 		DCD8B5D92ADB0AA20039F12F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
 		DCD8B5DC2ADB0B890039F12F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DB2ADB0B890039F12F /* FirebaseAnalytics */; };
 		DCD8B5DE2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DD2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -89,6 +97,10 @@
 		DC689C3C2ADB228F00F03E07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC689C3E2ADB229000F03E07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC689C412ADB229000F03E07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC689C7D2ADB254800F03E07 /* AddBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBus.swift; sourceTree = "<group>"; };
+		DC689C812ADB2F6100F03E07 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoppage.swift; sourceTree = "<group>"; };
+		DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoppage.swift; sourceTree = "<group>"; };
 		DCC2FF672AD842E900E9834A /* Dhaka Wheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dhaka Wheels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dhaka_WheelsApp.swift; sourceTree = "<group>"; };
 		DCC2FF6C2AD842E900E9834A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,7 +115,8 @@
 		DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailView.swift; sourceTree = "<group>"; };
 		DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBustList.swift; sourceTree = "<group>"; };
 		DCCC6C1F2ADA996C00E95C2D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		DCCC6C212ADAAC2700E95C2D /* Stopage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopage.swift; sourceTree = "<group>"; };
+		DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stoppage.swift; sourceTree = "<group>"; };
+		DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				DC689C3A2ADB228F00F03E07 /* FirebaseUpdatorApp.swift */,
-				DC689C3C2ADB228F00F03E07 /* ContentView.swift */,
+				DCABFED12ADBADD0004DD6CF /* Views */,
+				DCABFED22ADBADF6004DD6CF /* Models */,
 				DC689C3E2ADB229000F03E07 /* Assets.xcassets */,
 				DC689C402ADB229000F03E07 /* Preview Content */,
 			);
@@ -197,6 +211,41 @@
 				DC689C412ADB229000F03E07 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DCABFED12ADBADD0004DD6CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC689C3C2ADB228F00F03E07 /* ContentView.swift */,
+				DCABFED32ADBAE19004DD6CF /* Bus */,
+				DCABFED92ADBCC8C004DD6CF /* Stopage */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DCABFED22ADBADF6004DD6CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC689C812ADB2F6100F03E07 /* FirebaseData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DCABFED32ADBAE19004DD6CF /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				DC689C7D2ADB254800F03E07 /* AddBus.swift */,
+				DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */,
+			);
+			path = Bus;
+			sourceTree = "<group>";
+		};
+		DCABFED92ADBCC8C004DD6CF /* Stopage */ = {
+			isa = PBXGroup;
+			children = (
+				DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */,
+			);
+			path = Stopage;
 			sourceTree = "<group>";
 		};
 		DCC2FF5E2AD842E900E9834A = {
@@ -225,6 +274,7 @@
 				DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */,
 				DCC2FF782AD844AE00E9834A /* Views */,
 				DCC2FF822AD858C900E9834A /* Models */,
+				DCCFA2872AE044D600D2F741 /* Services */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
 				DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */,
 				DCC2FF702AD842EA00E9834A /* Preview Content */,
@@ -266,10 +316,18 @@
 			isa = PBXGroup;
 			children = (
 				DCC2FF832AD858DD00E9834A /* Bus.swift */,
-				DCCC6C212ADAAC2700E95C2D /* Stopage.swift */,
+				DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */,
 				DCC2FF862AD85A3E00E9834A /* Constants.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DCCFA2872AE044D600D2F741 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +454,7 @@
 			mainGroup = DCC2FF5E2AD842E900E9834A;
 			packageReferences = (
 				DCD8B5DA2ADB0B890039F12F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DCABFED62ADBB932004DD6CF /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
 			);
 			productRefGroup = DCC2FF682AD842E900E9834A /* Products */;
 			projectDirPath = "";
@@ -436,8 +495,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */,
+				DC689C822ADB2F6100F03E07 /* FirebaseData.swift in Sources */,
+				DCCFA28A2AE044F900D2F741 /* FirebaseServices.swift in Sources */,
+				DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */,
+				DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */,
+				DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */,
 				DC689C3D2ADB228F00F03E07 /* ContentView.swift in Sources */,
 				DC689C3B2ADB228F00F03E07 /* FirebaseUpdatorApp.swift in Sources */,
+				DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,8 +513,9 @@
 			files = (
 				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
+				DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
-				DCCC6C222ADAAC2700E95C2D /* Stopage.swift in Sources */,
+				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
 				DCC2FF7A2AD844EA00E9834A /* HomeView.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
@@ -748,6 +815,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DCABFED62ADBB932004DD6CF /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 		DCD8B5DA2ADB0B890039F12F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
