@@ -3,8 +3,8 @@
         "name": "Shadin Express",
         "routeNumber": "2",
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
-        "startingPoint": "Mawa",
-        "endingPoint": "Mirpur 12",
+        "coachType": "Non-AC",
+        "serviceType": "Sitting",
         "stoppages": [
             "Mawa",
             "Rajendrapur",
@@ -32,15 +32,14 @@
             "Purobi",
             "Pallabi",
             "Mirpur 12"
-        ],
-        "type": "Sitting"
+        ]
     },
     {
         "name": "Achim Paribahan",
         "routeNumber": "3",
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
-        "startingPoint": "Gabtoli",
-        "endingPoint": "Demra Staff Quarter",
+        "coachType": "Non-AC",
+        "serviceType": "Local",
         "stoppages": [
             "Gabtoli",
             "Technical",
@@ -69,15 +68,14 @@
             "Rampura Bridge",
             "Banasree",
             "Demra Staff Quarter"
-        ],
-        "type": "Local"
+        ]
     },
     {
         "name": "Bhuiyan Paribahan",
         "routeNumber": "3",
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
-        "startingPoint": "Japan Garden City",
-        "endingPoint": "Abdullahpur",
+        "coachType": "Non-AC",
+        "serviceType": "Semi-Sitting",
         "stoppages": [
             "Japan Garden City",
             "Ring Road",
@@ -105,15 +103,14 @@
             "Azampur",
             "House Building",
             "Abdullahpur"
-        ],
-        "type": "Sitting"
+        ]
     },
     {
         "name": "Desh Bangla",
         "routeNumber": "4",
         "imageUrl": "https://media.istockphoto.com/id/502763360/photo/double-decker-bus.jpg?s=2048x2048&w=is&k=20&c=1CCVykEGGPzdty9DZCDNACQxVU6vZX8TZ111qEyOBao=",
-        "startingPoint": "Postagola",
-        "endingPoint": "Kamarpara",
+        "coachType": "AC",
+        "serviceType": "Sitting",
         "stoppages": [
             "Postagola",
             "Dholairpar",
@@ -143,15 +140,14 @@
             "House Building",
             "Abdullahpur",
             "Kamarpara"
-        ],
-        "type": "Sitting"
+        ]
     },
     {
         "name": "Dewan",
         "routeNumber": "5",
         "imageUrl": "https://media.istockphoto.com/id/1195259380/photo/white-big-tour-bus-front-left-angle-view-isolated-on-white-background-3d-rendering.jpg?s=2048x2048&w=is&k=20&c=oF1-gH1YKtL4JWG7qsMwLYjPcmG0DN82NNQsdXCqLz8=",
-        "startingPoint": "Azimpur",
-        "endingPoint": "Kuril Bishwa Road",
+        "coachType": "Non-AC",
+        "serviceType": "Sitting",
         "stoppages": [
             "Azimpur",
             "Eden College",
@@ -179,7 +175,6 @@
             "Bashundhara",
             "Jamuna Future Park",
             "Kuril Bishwa Road"
-        ],
-        "type": "Sitting"
+        ]
     }
 ]

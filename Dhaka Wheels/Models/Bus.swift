@@ -12,8 +12,7 @@ struct Bus: Hashable, Decodable {
     let name: String
     let routeNumber: String
     let imageUrl: String
-    let startingPoint: String
-    let endingPoint: String
+    let coachType: String
+    let serviceType: String
     let stoppages: [String]
-    let type: String
 }

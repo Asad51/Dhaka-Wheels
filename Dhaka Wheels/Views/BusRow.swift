@@ -23,14 +23,14 @@ struct BusRow: View {
                     .lineLimit(1)
                     
 
-                Text("\(bus.startingPoint) - \(bus.endingPoint)")
+                Text("\(bus.stoppages.first ?? "") - \(bus.stoppages.last ?? "")")
                     .font(.subheadline)
             }
             .padding()
 
             Spacer()
 
-            Text(bus.type)
+            Text(bus.serviceType)
                 .font(.title3)
         }
     }

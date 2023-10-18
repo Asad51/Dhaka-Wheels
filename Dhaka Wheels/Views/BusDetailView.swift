@@ -29,7 +29,7 @@ struct BusDetailView: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text("\(bus.startingPoint) - \(bus.endingPoint)")
+                    Text("\(bus.stoppages.first ?? "") - \(bus.stoppages.last ?? "")")
                     Text("Route No: \(bus.routeNumber)")
                 }
                 .font(.title2)
