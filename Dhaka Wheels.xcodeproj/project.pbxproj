@@ -65,6 +65,10 @@
 		DCCFA28E2AE04D7100D2F741 /* BusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */; };
 		DCCFA2902AE04D8900D2F741 /* StoppageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */; };
 		DCCFA2912AE04D8900D2F741 /* StoppageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */; };
+		DCCFA2942AE0596400D2F741 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2932AE0596400D2F741 /* String+Extensions.swift */; };
+		DCCFA2952AE0596400D2F741 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2932AE0596400D2F741 /* String+Extensions.swift */; };
+		DCCFA2972AE061E900D2F741 /* SuggestionMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */; };
+		DCCFA2982AE061E900D2F741 /* SuggestionMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */; };
 		DCD8B5D92ADB0AA20039F12F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
 		DCD8B5DC2ADB0B890039F12F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DB2ADB0B890039F12F /* FirebaseAnalytics */; };
 		DCD8B5DE2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B5DD2ADB0B890039F12F /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -93,6 +97,12 @@
 		DCD8B60C2ADB0B890039F12F /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60B2ADB0B890039F12F /* FirebaseRemoteConfigSwift */; };
 		DCD8B60E2ADB0B890039F12F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60D2ADB0B890039F12F /* FirebaseStorage */; };
 		DCD8B6102ADB0B890039F12F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60F2ADB0B890039F12F /* FirebaseStorageCombine-Community */; };
+		DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
+		DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
+		DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */; };
+		DCE3FE6C2AE196AC00CD1627 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */; };
+		DCE3FE6E2AE1971B00CD1627 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6D2AE1971B00CD1627 /* SuggestionViewModel.swift */; };
+		DCE3FE6F2AE1971B00CD1627 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6D2AE1971B00CD1627 /* SuggestionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,8 +133,13 @@
 		DCCFA2882AE044F900D2F741 /* FirebaseServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseServices.swift; sourceTree = "<group>"; };
 		DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusViewModel.swift; sourceTree = "<group>"; };
 		DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoppageViewModel.swift; sourceTree = "<group>"; };
+		DCCFA2932AE0596400D2F741 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionMenuView.swift; sourceTree = "<group>"; };
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRow.swift; sourceTree = "<group>"; };
+		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
+		DCE3FE6D2AE1971B00CD1627 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +297,7 @@
 				DCCFA28B2AE04D4C00D2F741 /* ViewModels */,
 				DCC2FF822AD858C900E9834A /* Models */,
 				DCCFA2872AE044D600D2F741 /* Services */,
+				DCCFA2922AE0594900D2F741 /* Extensions */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
 				DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */,
 				DCC2FF702AD842EA00E9834A /* Preview Content */,
@@ -302,11 +318,9 @@
 			children = (
 				DCC2FF6C2AD842E900E9834A /* ContentView.swift */,
 				DCC2FF792AD844EA00E9834A /* HomeView.swift */,
-				DCC2FF7B2AD84A3500E9834A /* SearchView.swift */,
-				DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */,
-				DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */,
-				DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */,
-				DCCC6C1F2ADA996C00E95C2D /* MapView.swift */,
+				DCE3FE652AE1948F00CD1627 /* Bus */,
+				DCE3FE662AE194B600CD1627 /* Stoppage */,
+				DCE3FE642AE1948200CD1627 /* Suggestions */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +339,7 @@
 				DCC2FF832AD858DD00E9834A /* Bus.swift */,
 				DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */,
 				DCC2FF862AD85A3E00E9834A /* Constants.swift */,
+				DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,8 +357,45 @@
 			children = (
 				DCCFA28C2AE04D7100D2F741 /* BusViewModel.swift */,
 				DCCFA28F2AE04D8900D2F741 /* StoppageViewModel.swift */,
+				DCE3FE6D2AE1971B00CD1627 /* SuggestionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DCCFA2922AE0594900D2F741 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DCCFA2932AE0596400D2F741 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCE3FE642AE1948200CD1627 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */,
+				DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */,
+			);
+			path = Suggestions;
+			sourceTree = "<group>";
+		};
+		DCE3FE652AE1948F00CD1627 /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				DCC2FF7B2AD84A3500E9834A /* SearchView.swift */,
+				DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */,
+				DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */,
+				DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */,
+			);
+			path = Bus;
+			sourceTree = "<group>";
+		};
+		DCE3FE662AE194B600CD1627 /* Stoppage */ = {
+			isa = PBXGroup;
+			children = (
+				DCCC6C1F2ADA996C00E95C2D /* MapView.swift */,
+			);
+			path = Stoppage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,13 +567,18 @@
 				DC689C822ADB2F6100F03E07 /* FirebaseData.swift in Sources */,
 				DCCFA28A2AE044F900D2F741 /* FirebaseServices.swift in Sources */,
 				DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */,
+				DCCFA2952AE0596400D2F741 /* String+Extensions.swift in Sources */,
 				DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */,
+				DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */,
+				DCCFA2982AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
+				DCE3FE6F2AE1971B00CD1627 /* SuggestionViewModel.swift in Sources */,
 				DCCFA2912AE04D8900D2F741 /* StoppageViewModel.swift in Sources */,
 				DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */,
 				DC689C3D2ADB228F00F03E07 /* ContentView.swift in Sources */,
 				DC689C3B2ADB228F00F03E07 /* FirebaseUpdatorApp.swift in Sources */,
 				DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */,
 				DCCFA28E2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
+				DCE3FE6C2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,13 +591,18 @@
 				DCCFA28D2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
 				DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
+				DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
 				DCC2FF7A2AD844EA00E9834A /* HomeView.swift in Sources */,
 				DCCFA2902AE04D8900D2F741 /* StoppageViewModel.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
+				DCCFA2942AE0596400D2F741 /* String+Extensions.swift in Sources */,
+				DCCFA2972AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
+				DCE3FE6E2AE1971B00CD1627 /* SuggestionViewModel.swift in Sources */,
 				DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */,
 				DCCC6C202ADA996C00E95C2D /* MapView.swift in Sources */,
+				DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */,
 				DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */,
 				DCCC6C1E2ADA945700E95C2D /* AllBustList.swift in Sources */,
 			);
