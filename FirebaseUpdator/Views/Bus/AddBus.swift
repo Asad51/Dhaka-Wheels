@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct AddBus: View {
-    @EnvironmentObject private var firebaseData: FirebaseData
+    @ObservedObject private var busViewModel = BusViewModel()
+    @ObservedObject private var stoppageViewModel = StoppageViewModel()
+
     @State private var name: String = ""
     @State private var routeNumber: String = "N/A"
     @State private var coachType: String = "Non-AC"
@@ -98,7 +100,7 @@ struct AddBus: View {
                     }
 
                 Button {
-                    if let stop = firebaseData.stoppages.first(where: { $0.name == stoppage }) {
+                    if let stop = stoppageViewModel.stoppages.first(where: { $0.name == stoppage }) {
                         if !stoppages.contains(where: { $0.id == stop.id}) {
                             stoppages.append(stop)
                         }
@@ -151,7 +153,7 @@ struct AddBus: View {
             return "Plese select at least two stoppages"
         }
 
-        if firebaseData.buses.filter({ $0.name == name && $0.routeNumber == routeNumber }).count > 0 {
+        if busViewModel.buses.filter({ $0.name == name && $0.routeNumber == routeNumber }).count > 0 {
             return "The bus is already exist"
         }
 

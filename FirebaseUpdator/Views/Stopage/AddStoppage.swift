@@ -5,61 +5,99 @@
 //  Created by Md. Asadul Islam on 15/10/23.
 //
 
+import Foundation
 import SwiftUI
 
 struct AddStoppage: View {
     @EnvironmentObject private var firebaseData: FirebaseData
+    @ObservedObject private var viewModel = StoppageViewModel()
+
     @State private var name: String = ""
     @State private var coordinate: String = ""
+    //@State private var showSuggestions = false
+    @State private var editing = false
 
     @State private var validationError = ""
     @State private var showValidationError = false
     @State private var stoppage: Stoppage?
 
+    private func showSuggestions() -> Bool {
+        return editing && name.trimmingCharacters(in: .whitespaces).count > 2
+    }
+
     var body: some View {
-        VStack {
-            HStack {
-                Text("Stoppage :")
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+            VStack {
+                HStack(alignment: .center) {
+                    Text("Stoppage :")
 
-                TextField("Stoppage name", text: $name)
+                    TextField("Stoppage name", text: $name, onEditingChanged: { editing in
+                        self.editing = editing
+                    })
                     .padding()
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(.gray)
                     }
-            }
-
-            HStack {
-                Text("Coordinate :")
-
-                TextField("latitude, longitude", text: $coordinate)
-                    .padding()
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.gray)
-                    }
-            }
-
-            Button {
-                validationError = validateStoppageData()
-                if validationError.isEmpty {
-                    // TODO: add stoppage to firebase
-                } else {
-                    showValidationError = true
                 }
-            } label: {
-                Text("Add")
+
+                HStack {
+                    Text("Coordinate :")
+
+                    TextField("latitude, longitude", text: $coordinate)
+                        .padding()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray)
+                        }
+                }
+
+                Button {
+                    validationError = validateStoppageData()
+                    if validationError.isEmpty {
+                        if let stop = stoppage {
+                            viewModel.addStoppage(name: stop.name, latitude: stop.latitude, longitude: stop.longitude)
+                        }
+                        name = ""
+                        coordinate = ""
+                    } else {
+                        showValidationError = true
+                    }
+                } label: {
+                    Text("Add")
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .background(.blue)
+                .foregroundColor(.white)
+                .cornerRadius(20)
+                .padding(30)
+                .alert(validationError, isPresented: $showValidationError) {
+                }
+                
+                Spacer()
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
-            .background(.blue)
-            .foregroundColor(.white)
-            .cornerRadius(20)
-            .padding(30)
-            .alert(validationError, isPresented: $showValidationError) {
+            .padding()
+
+            if showSuggestions() {
+                SuggestionMenuView(
+                    suggestionViewModel: SuggestionViewModel(
+                        suggestions: viewModel.stoppages.map({ stoppage in
+                            return Suggestion(
+                                id: stoppage.id,
+                                title: stoppage.name,
+                                subTitle: "(\(stoppage.latitude), \(stoppage.longitude))"
+                            )
+                        })
+                    ),
+                    filterText: $name,
+                    selected: .constant(nil)
+                )
             }
         }
-        .padding()
+        .onAppear {
+            viewModel.fetchData()
+        }
     }
 
     private func validateStoppageData() -> String {
@@ -69,6 +107,12 @@ struct AddStoppage: View {
 
         if coordinate.isEmpty {
             return "Please enter coorninate"
+        }
+
+        for stopp in viewModel.stoppages {
+            if stopp.name.caseInsensitiveEqual(name) {
+                return "Stoppage already exists."
+            }
         }
 
         let geopoint = coordinate.split(separator: ", ")
