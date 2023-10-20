@@ -115,6 +115,7 @@
 		DC689C812ADB2F6100F03E07 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoppage.swift; sourceTree = "<group>"; };
 		DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoppage.swift; sourceTree = "<group>"; };
+		DCBD125E2AE2C1E100AAF62F /* .swiftlformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlformat; sourceTree = "<group>"; };
 		DCC2FF672AD842E900E9834A /* Dhaka Wheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dhaka Wheels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dhaka_WheelsApp.swift; sourceTree = "<group>"; };
 		DCC2FF6C2AD842E900E9834A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 				DC689C392ADB228F00F03E07 /* FirebaseUpdator */,
 				DCD8B5D72ADAFA230039F12F /* README.md */,
 				DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */,
+				DCBD125E2AE2C1E100AAF62F /* .swiftlformat */,
 				DCC2FF682AD842E900E9834A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -408,6 +410,7 @@
 				DC689C342ADB228F00F03E07 /* Sources */,
 				DC689C352ADB228F00F03E07 /* Frameworks */,
 				DC689C362ADB228F00F03E07 /* Resources */,
+				DCBD125F2AE2C34F00AAF62F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -454,6 +457,7 @@
 				DCC2FF632AD842E900E9834A /* Sources */,
 				DCC2FF642AD842E900E9834A /* Frameworks */,
 				DCC2FF652AD842E900E9834A /* Resources */,
+				DCBD125D2AE2C09B00AAF62F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -557,6 +561,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DCBD125D2AE2C09B00AAF62F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    git diff --name-only | grep -e '\\(.*\\).swift$' | while read line; do\n        swiftformat \"${line}\" --lint;\n    done\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\nexit 0\n";
+		};
+		DCBD125F2AE2C34F00AAF62F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftformat >/dev/null; then\n    git diff --name-only | grep -e '\\(.*\\).swift$' | while read line; do\n        swiftformat \"${line}\" --lint;\n    done\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\nexit 0\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC689C342ADB228F00F03E07 /* Sources */ = {
