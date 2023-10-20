@@ -35,6 +35,7 @@ struct AddStoppage: View {
                         self.editing = editing
                     })
                     .padding()
+                    .autocorrectionDisabled()
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(.gray)

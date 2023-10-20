@@ -116,6 +116,7 @@
 		DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoppage.swift; sourceTree = "<group>"; };
 		DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoppage.swift; sourceTree = "<group>"; };
 		DCBD12602AE2D5C600AAF62F /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		DCBD12612AE2D72B00AAF62F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCC2FF672AD842E900E9834A /* Dhaka Wheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dhaka Wheels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dhaka_WheelsApp.swift; sourceTree = "<group>"; };
 		DCC2FF6C2AD842E900E9834A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 				DCABFED22ADBADF6004DD6CF /* Models */,
 				DC689C3E2ADB229000F03E07 /* Assets.xcassets */,
 				DC689C402ADB229000F03E07 /* Preview Content */,
+				DCBD12612AE2D72B00AAF62F /* README.md */,
 			);
 			path = FirebaseUpdator;
 			sourceTree = "<group>";

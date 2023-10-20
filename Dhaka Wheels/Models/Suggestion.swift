@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Suggestion: Identifiable {
+struct Suggestion: Identifiable, Equatable {
     let id: String
     let title: String
     let subTitle: String
