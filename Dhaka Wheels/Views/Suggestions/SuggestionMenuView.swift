@@ -35,13 +35,13 @@ struct SuggestionMenuView: View {
                         }
                         .onTapGesture {
                             selected = suggestion.wrappedValue
-                            dismiss()
+                            //dismiss()
                         }
                 }
             }
         }
         .background(Color(.lightGray))
-        .frame(height: 500)
+        .frame(height: 300)
     }
 }
 

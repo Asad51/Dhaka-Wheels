@@ -11,11 +11,31 @@ import FirebaseFirestore
 class BusViewModel: ObservableObject {
     @Published var buses = [Bus]()
 
-    private let firebase = Firestore.firestore()
+    private let firestore = Firestore.firestore()
+
+    func addBus(name: String, routeNumber: String, imageUrl: String = "", coachType: String, serviceType: String, stoppages: [Stoppage]) {
+        firestore
+            .collection("buses")
+            .addDocument(data: [
+                "name": name,
+                "routeNumber": routeNumber,
+                "imageUrl": imageUrl,
+                "coachType": coachType,
+                "serviceType": serviceType,
+                "stoppages": stoppages.map({ stoppage in
+                    stoppage.id
+                })
+            ]) { error in
+                if error == nil {
+                    self.fetchData()
+                }
+            }
+    }
 
     func fetchData() {
-        firebase.collection("buses").addSnapshotListener { snapshot, error in
+        firestore.collection("buses").addSnapshotListener { snapshot, error in
             if let documents = snapshot?.documents {
+                print(documents.count)
                 self.buses = documents.map({ document in
                     let id = document["id"] as? String ?? ""
                     let name = document["name"] as? String ?? ""
