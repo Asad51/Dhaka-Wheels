@@ -22,10 +22,15 @@ struct FirebaseUpdatorApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+    @StateObject private var firebaseData = FirebaseData()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(FirebaseData())
+                .environmentObject(firebaseData)
+                .task {
+                    await firebaseData.fetchData()
+                }
         }
     }
 }

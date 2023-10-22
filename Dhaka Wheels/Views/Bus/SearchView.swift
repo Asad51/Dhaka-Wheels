@@ -91,7 +91,11 @@ struct SearchView: View {
 
     private func filterBuses() {
         print(startingLocation, endingLocation)
-        filteredBuses = buses.filter { $0.stoppages.contains(startingLocation) && $0.stoppages.contains(endingLocation)}
+        filteredBuses = buses.filter { contains(stoppages: $0.stoppages) }
+    }
+
+    private func contains(stoppages: [Stoppage]) -> Bool {
+        return stoppages.contains(where: { $0.name == startingLocation }) && stoppages.contains(where: { $0.name == endingLocation })
     }
 }
 

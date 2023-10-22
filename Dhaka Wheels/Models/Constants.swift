@@ -8,11 +8,18 @@
 import Foundation
 
 struct Constants {
-    static let previewBuses: [Bus] = {
-        let decoder = JSONDecoder()
-
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "BusList", withExtension: "json")!)
-
-        return try! decoder.decode([Bus].self, from: data)
-    }()
+    static let previewBuses: [Bus] = [
+        Bus(
+            id: "InvalidId",
+            name: "Achim Paribahan",
+            routeNumber: "a-314",
+            imageUrl: "",
+            coachType: "Non-AC",
+            serviceType: "Sitting",
+            stoppages: [
+                Stoppage(id: "InvalidId1", name: "Moghbazar", latitude: 23.038323, longitude: 90.353632),
+                Stoppage(id: "InvalidId1", name: "Kawran Bazar", latitude: 23.038323, longitude: 90.353632)
+            ]
+        )
+    ]
 }

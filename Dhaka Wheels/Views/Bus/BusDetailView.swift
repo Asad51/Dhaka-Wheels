@@ -29,7 +29,7 @@ struct BusDetailView: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text("\(bus.stoppages.first ?? "") - \(bus.stoppages.last ?? "")")
+                    Text("\(bus.stoppages.first?.name ?? "") - \(bus.stoppages.last?.name ?? "")")
                     Text("Route No: \(bus.routeNumber)")
                 }
                 .font(.title2)
@@ -75,7 +75,7 @@ struct BusDetailView: View {
                                     .foregroundStyle(.red, .green)
                             }
 
-                            Text(stoppage)
+                            Text(stoppage.name)
 
                             if i == bus.stoppages.count - 1 {
                                 Image(systemName: "mappin.and.ellipse")

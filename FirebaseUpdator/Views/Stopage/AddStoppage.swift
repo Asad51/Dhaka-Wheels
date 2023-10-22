@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AddStoppage: View {
     @EnvironmentObject private var firebaseData: FirebaseData
-    @ObservedObject private var viewModel = StoppageViewModel()
 
     @State private var name: String = ""
     @State private var coordinate: String = ""
@@ -57,7 +56,7 @@ struct AddStoppage: View {
                     validationError = validateStoppageData()
                     if validationError.isEmpty {
                         if let stop = stoppage {
-                            viewModel.addStoppage(name: stop.name, latitude: stop.latitude, longitude: stop.longitude)
+                            firebaseData.addStoppage(name: stop.name, latitude: stop.latitude, longitude: stop.longitude)
                         }
                         name = ""
                         coordinate = ""
@@ -83,9 +82,9 @@ struct AddStoppage: View {
             if showSuggestions() {
                 SuggestionMenuView(
                     suggestionViewModel: SuggestionViewModel(
-                        suggestions: viewModel.stoppages.map({ stoppage in
-                            return Suggestion(
-                                id: stoppage.id,
+                        suggestions: firebaseData.stoppages.map({ id, stoppage in
+                            Suggestion(
+                                id: id,
                                 title: stoppage.name,
                                 subTitle: "(\(stoppage.latitude), \(stoppage.longitude))"
                             )
@@ -95,9 +94,6 @@ struct AddStoppage: View {
                     selected: .constant(nil)
                 )
             }
-        }
-        .onAppear {
-            viewModel.fetchData()
         }
     }
 
@@ -110,7 +106,7 @@ struct AddStoppage: View {
             return "Please enter coorninate"
         }
 
-        for stopp in viewModel.stoppages {
+        for (_, stopp) in firebaseData.stoppages {
             if stopp.name.caseInsensitiveEqual(name) {
                 return "Stoppage already exists."
             }
