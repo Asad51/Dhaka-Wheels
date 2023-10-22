@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AddBus: View {
-    @ObservedObject private var busViewModel = BusViewModel()
-    @ObservedObject private var stoppageViewModel = StoppageViewModel()
+    @EnvironmentObject private var firebaseData: FirebaseData
 
     @State private var name: String = ""
     @State private var routeNumber: String = "N/A"
@@ -122,7 +121,7 @@ struct AddBus: View {
                         .autocorrectionDisabled()
 
                     Button {
-                        if let suggestion = selectedSuggestion, let stop = stoppageViewModel.stoppages.first(where: { $0.id == suggestion.id }) {
+                        if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
                             if !stoppages.contains(where: { $0.id == stop.id}) {
                                 stoppages.append(stop)
                             } else {
@@ -148,7 +147,7 @@ struct AddBus: View {
                 Button {
                     validationError = validateBusData()
                     if validationError.isEmpty {
-                        busViewModel.addBus(name: name, routeNumber: routeNumber, coachType: coachType, serviceType: serviceType, stoppages: stoppages)
+                        firebaseData.addBus(name: name, routeNumber: routeNumber, coachType: coachType, serviceType: serviceType, stoppages: stoppages)
 
                         name = ""
                         routeNumber = "N/A"
@@ -177,10 +176,6 @@ struct AddBus: View {
                 SuggestionMenuView(suggestionViewModel: SuggestionViewModel(suggestions: suggestions), filterText: filterText, selected: $selectedSuggestion)
             }
         }
-        .onAppear {
-            busViewModel.fetchData()
-            stoppageViewModel.fetchData()
-        }
     }
 
     private func createSuggestions() -> (suggestions: [Suggestion], filterText: Binding<String>) {
@@ -189,13 +184,13 @@ struct AddBus: View {
 
         if showBusSuggestions() {
             filterText = $name
-            suggestions = busViewModel.buses.map({ bus in
+            suggestions = firebaseData.buses.map({ bus in
                 Suggestion(id: bus.id, title: bus.name, subTitle: "\(bus.stoppages.first!.name) <-> \(bus.stoppages.last!.name)")
             })
         } else {
             filterText = $stoppage
-            suggestions = stoppageViewModel.stoppages.map({ stop in
-                Suggestion(id: stop.id, title: stop.name, subTitle: "(\(stop.latitude), \(stop.longitude)")
+            suggestions = firebaseData.stoppages.map({ id, stop in
+                Suggestion(id: id, title: stop.name, subTitle: "(\(stop.latitude), \(stop.longitude)")
             })
         }
 
@@ -219,7 +214,7 @@ struct AddBus: View {
             return "Plese select at least two stoppages"
         }
 
-        if busViewModel.buses.filter({ $0.name == name && $0.routeNumber == routeNumber }).count > 0 {
+        if firebaseData.buses.filter({ $0.name == name && $0.routeNumber == routeNumber }).count > 0 {
             return "The bus is already exist"
         }
 

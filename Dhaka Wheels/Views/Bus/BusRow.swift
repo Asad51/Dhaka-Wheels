@@ -23,7 +23,7 @@ struct BusRow: View {
                     .lineLimit(1)
                     
 
-                Text("\(bus.stoppages.first ?? "") - \(bus.stoppages.last ?? "")")
+                Text("\(bus.stoppages.first?.name ?? "") - \(bus.stoppages.last?.name ?? "")")
                     .font(.subheadline)
             }
             .padding()
