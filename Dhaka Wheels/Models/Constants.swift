@@ -22,4 +22,9 @@ struct Constants {
             ]
         )
     ]
+
+    static let previewSuggestions: [Suggestion] = [
+        Suggestion(id: "InvalidID1", title: "Suggestion 01", subTitle: "Suggestions sub text"),
+        Suggestion(id: "InvalidID2", title: "Suggestion 02", subTitle: "Suggestions sub text")
+    ]
 }

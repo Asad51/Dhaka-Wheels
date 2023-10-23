@@ -9,42 +9,33 @@ import SwiftUI
 
 struct SuggestionMenuView: View {
     @Environment(\.dismiss) private var dismiss
-
-    @ObservedObject var suggestionViewModel = SuggestionViewModel(suggestions: [])
-
-    @Binding var filterText: String
+    @State var suggestions: [Suggestion]
     @Binding var selected: Suggestion?
+    
+    @State private var suggestionRowHeight = 60.0
 
-    private var filteredSuggestions: Binding<[Suggestion]> {
-        Binding {
-            return suggestionViewModel.suggestions.filter {
-                $0.title.caseInsensitiveContains(filterText)
-            }
-        } set: { _, _ in
-        }
-    }
-
-    // FIXME: - Need to fix height and positioning
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                ForEach(filteredSuggestions) { suggestion in
-                    SuggestionRow(suggestion: suggestion.wrappedValue)
-                        .background {
+        VStack {
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(suggestions) { suggestion in
+                        SuggestionRow(suggestion: suggestion, suggestionRowHeight: $suggestionRowHeight)
+                            .onTapGesture {
+                                selected = suggestion
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            }
 
-                        }
-                        .onTapGesture {
-                            selected = suggestion.wrappedValue
-                            //dismiss()
-                        }
+                        Divider()
+                    }
                 }
             }
+            .frame(height: suggestionRowHeight * Double(suggestions.count > 5 ? 5 : suggestions.count))
         }
-        .background(Color(.lightGray))
-        .frame(height: 300)
+        .padding(10)
+        .background(.white)
     }
 }
 
 #Preview {
-    SuggestionMenuView(filterText: .constant(""), selected: .constant(nil))
+    SuggestionMenuView(suggestions: Constants.previewSuggestions, selected: .constant(nil))
 }
