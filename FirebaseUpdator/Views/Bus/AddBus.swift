@@ -172,8 +172,7 @@ struct AddBus: View {
             .padding()
 
             if showSuggestions() {
-                let (suggestions, filterText) = createSuggestions()
-                SuggestionMenuView(suggestionViewModel: SuggestionViewModel(suggestions: suggestions), filterText: filterText, selected: $selectedSuggestion)
+
             }
         }
     }

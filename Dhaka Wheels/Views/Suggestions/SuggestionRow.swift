@@ -9,18 +9,31 @@ import SwiftUI
 
 struct SuggestionRow: View {
     @State var suggestion: Suggestion
+    @Binding var suggestionRowHeight: Double
 
     var body: some View {
         VStack {
             Text(suggestion.title)
                 .font(.title)
 
-            Text(suggestion.subTitle)
-                .font(.subheadline)
+            if !suggestion.subTitle.isEmpty {
+                Text(suggestion.subTitle)
+                    .font(.subheadline)
+            }
+
+            Spacer()
         }
+        .background(
+            GeometryReader { proxy in
+                Color.clear
+                    .task(id: proxy.size) {
+                        suggestionRowHeight = proxy.size.height
+                    }
+            }
+        )
     }
 }
 
 #Preview {
-    SuggestionRow(suggestion: Suggestion(id: "InvalidID", title: "Title", subTitle: "Sub title"))
+    SuggestionRow(suggestion: Constants.previewSuggestions[0], suggestionRowHeight: .constant(80.0))
 }

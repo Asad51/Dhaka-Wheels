@@ -13,33 +13,41 @@ struct AddStoppage: View {
 
     @State private var name: String = ""
     @State private var coordinate: String = ""
-    //@State private var showSuggestions = false
-    @State private var editing = false
 
     @State private var validationError = ""
     @State private var showValidationError = false
     @State private var stoppage: Stoppage?
+
+    @State private var editing = false
+    @State private var suggestionMenuTopPadding = 0.0
 
     private func showSuggestions() -> Bool {
         return editing && name.trimmingCharacters(in: .whitespaces).count > 2
     }
 
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
-                HStack(alignment: .center) {
-                    Text("Stoppage :")
+                GeometryReader { reader in
+                    let frame = reader.frame(in: CoordinateSpace.global)
 
-                    TextField("Stoppage name", text: $name, onEditingChanged: { editing in
-                        self.editing = editing
-                    })
-                    .padding()
-                    .autocorrectionDisabled()
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.gray)
+                    HStack(alignment: .center) {
+                        Text("Stoppage :")
+
+                        TextField("Stoppage name :", text: $name, onEditingChanged: { editing in
+                            self.editing = editing
+                            suggestionMenuTopPadding = frame.origin.y
+                        })
+                        .padding()
+                        .autocorrectionDisabled()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray)
+                        }
                     }
                 }
+                .frame(height: 30)
+                .padding(.vertical, 15)
 
                 HStack {
                     Text("Coordinate :")
@@ -51,6 +59,7 @@ struct AddStoppage: View {
                                 .stroke(.gray)
                         }
                 }
+                .padding(.vertical, 15)
 
                 Button {
                     validationError = validateStoppageData()
@@ -71,30 +80,42 @@ struct AddStoppage: View {
                 .background(.blue)
                 .foregroundColor(.white)
                 .cornerRadius(20)
-                .padding(30)
-                .alert(validationError, isPresented: $showValidationError) {
-                }
+                .alert(validationError, isPresented: $showValidationError) {}
                 
                 Spacer()
             }
-            .padding()
 
             if showSuggestions() {
-                SuggestionMenuView(
-                    suggestionViewModel: SuggestionViewModel(
-                        suggestions: firebaseData.stoppages.map({ id, stoppage in
-                            Suggestion(
-                                id: id,
-                                title: stoppage.name,
-                                subTitle: "(\(stoppage.latitude), \(stoppage.longitude))"
-                            )
-                        })
-                    ),
-                    filterText: $name,
-                    selected: .constant(nil)
-                )
+                let suggestions = getSuggestions()
+                if !suggestions.isEmpty {
+                    // TODO: Offset behaves wired when came navigation, need to check
+                    SuggestionMenuView(suggestions: suggestions, selected: .constant(nil))
+                        .offset(y: -suggestionMenuTopPadding)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 20)
+                                .offset(y: -suggestionMenuTopPadding)
+                        )
+                        .shadow(color: .gray, radius: 20)
+                        .padding(.horizontal, 30)
+                }
+
             }
         }
+        .padding()
+    }
+
+    private func getSuggestions() -> [Suggestion] {
+        let suggestions = firebaseData.stoppages
+            .filter { $0.value.name.caseInsensitiveContains(name) }
+            .map {
+                Suggestion(
+                    id: $0.key,
+                    title: $0.value.name,
+                    subTitle: "(\($0.value.latitude.rounded(to: 4)), \($0.value.longitude.rounded(to: 4)))"
+                )
+            }
+
+        return suggestions
     }
 
     private func validateStoppageData() -> String {
