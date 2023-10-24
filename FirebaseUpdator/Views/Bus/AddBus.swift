@@ -10,19 +10,26 @@ import SwiftUI
 struct AddBus: View {
     @EnvironmentObject private var firebaseData: FirebaseData
 
+    // Input values container
     @State private var name: String = ""
     @State private var routeNumber: String = "N/A"
     @State private var coachType: String = "Non-AC"
     @State private var serviceType: String = "Sitting"
+    @State private var stoppageName: String = ""
     @State private var stoppages: [Stoppage]  = []
-    @State private var stoppage: String = ""
-    @State private var selectedSuggestion: Suggestion?
 
+    // Error handling variables
     @State private var validationError = ""
     @State private var showValidationError = false
+
+    // Values for showing suggestions
     @State private var busNameEditing = false
     @State private var stoppageNameEditing = false
+    @State private var suggestionMenuTopPadding = 0.0
+    @State private var navbarHeight = 0.0
+    @State private var selectedSuggestion: Suggestion?
 
+    // TODO: Static values, to be changed later
     private var coachTypes: [String] = ["Non-AC", "AC"]
     private var serviceTypes: [String] = ["Sitting", "Semi Sitting", "Local"]
 
@@ -31,7 +38,7 @@ struct AddBus: View {
     }
 
     private func showStoppageSuggestions() -> Bool {
-        return stoppageNameEditing && stoppage.trimmingCharacters(in: .whitespaces).count > 2
+        return stoppageNameEditing && stoppageName.trimmingCharacters(in: .whitespaces).count > 2
     }
 
     private func showSuggestions() -> Bool {
@@ -39,22 +46,31 @@ struct AddBus: View {
     }
 
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
-                HStack {
-                    Text("Name : ")
+                GeometryReader { reader in
+                    let frame = reader.frame(in: CoordinateSpace.global)
                     
-                    TextField("Bus name", text: $name, onEditingChanged: { editing in
-                        busNameEditing = editing
-                    })
+                    HStack {
+                        Text("Name :")
+
+                        TextField("Bus name :", text: $name, onEditingChanged: { editing in
+                            busNameEditing = editing
+                        })
                         .padding()
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray)
                         }
                         .autocorrectionDisabled()
+                        .onTapGesture {
+                            suggestionMenuTopPadding = frame.origin.y
+                        }
+                    }
                 }
-                
+                .frame(height: 30)
+                .padding(.vertical, 15)
+
                 HStack {
                     Text("Route No: ")
                     
@@ -65,7 +81,8 @@ struct AddBus: View {
                                 .stroke(.gray)
                         }
                 }
-                
+                .padding(.vertical, 15)
+
                 HStack {
                     Text("Coach Type : ")
                     
@@ -110,7 +127,7 @@ struct AddBus: View {
                 HStack {
                     Text("Select Stoppages: ")
                     
-                    TextField("Stoppage name", text: $stoppage, onEditingChanged: { editing in
+                    TextField("Stoppage name", text: $stoppageName, onEditingChanged: { editing in
                         stoppageNameEditing = editing
                     })
                         .padding()
@@ -129,7 +146,7 @@ struct AddBus: View {
                                 showValidationError = true
                             }
 
-                            stoppage = ""
+                            stoppageName = ""
                         }
                     } label: {
                         Image(systemName: "plus.square")
@@ -139,7 +156,7 @@ struct AddBus: View {
                     }
                     .onChange(of: selectedSuggestion) { 
                         if let suggestion = selectedSuggestion, stoppageNameEditing {
-                            stoppage = suggestion.title
+                            stoppageName = suggestion.title
                         }
                     }
                 }
@@ -169,31 +186,50 @@ struct AddBus: View {
 
                 Spacer()
             }
-            .padding()
 
             if showSuggestions() {
-
+                let suggestions = createSuggestions()
+                if !suggestions.isEmpty {
+                    VStack {
+                        SuggestionMenuView(suggestions: suggestions, selected: $selectedSuggestion)
+                            .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            )
+                            .shadow(color: .gray, radius: 20)
+                            .padding(.horizontal, 30)
+                        Spacer()
+                    }
+                    .background(NavbarAccessor { navbar in
+                        navbarHeight = navbar.bounds.height
+                    })
+                }
             }
         }
+        .padding()
     }
 
-    private func createSuggestions() -> (suggestions: [Suggestion], filterText: Binding<String>) {
+    private func createSuggestions() -> [Suggestion] {
         var suggestions = [Suggestion]()
-        var filterText: Binding<String> = .constant("")
 
         if showBusSuggestions() {
-            filterText = $name
-            suggestions = firebaseData.buses.map({ bus in
-                Suggestion(id: bus.id, title: bus.name, subTitle: "\(bus.stoppages.first!.name) <-> \(bus.stoppages.last!.name)")
-            })
+            suggestions = firebaseData.buses
+                .filter { $0.name.caseInsensitiveContains(name) }
+                .map {
+                    Suggestion(
+                        id: $0.id,
+                        title: $0.name,
+                        subTitle: "\($0.stoppages.first?.name ?? "") <-> \($0.stoppages.last?.name ?? "")".capitalized
+                    )
+                }
         } else {
-            filterText = $stoppage
             suggestions = firebaseData.stoppages.map({ id, stop in
                 Suggestion(id: id, title: stop.name, subTitle: "(\(stop.latitude), \(stop.longitude)")
             })
         }
 
-        return (suggestions, filterText)
+        return suggestions
     }
 
     private func validateBusData() -> String {

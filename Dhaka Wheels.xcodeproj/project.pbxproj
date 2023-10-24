@@ -105,6 +105,8 @@
 		DCDD02B52AE7986F00B59B26 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02B42AE7986F00B59B26 /* CocoaLumberjackSwift */; };
 		DCDD02B72AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02B62AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend */; };
 		DCDD02B82AE7987F00B59B26 /* DWLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */; };
+		DCDD02BD2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */; };
+		DCDD02BE2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */; };
 		DCDDCEF32AE6EA3600E5207C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF862AD85A3E00E9834A /* Constants.swift */; };
 		DCDDCEF52AE7015400E5207C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */; };
 		DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
@@ -150,6 +152,7 @@
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogger.swift; sourceTree = "<group>"; };
+		DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarAccessor.swift; sourceTree = "<group>"; };
 		DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRow.swift; sourceTree = "<group>"; };
 		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
@@ -398,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */,
+				DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -649,6 +653,7 @@
 				DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */,
 				DCCFA2952AE0596400D2F741 /* String+Extensions.swift in Sources */,
 				DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */,
+				DCDD02BE2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */,
 				DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */,
 				DCCFA2982AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
 				DCE3FE6F2AE1971B00CD1627 /* SuggestionViewModel.swift in Sources */,
@@ -667,6 +672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDD02BD2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */,
 				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCCFA28D2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
