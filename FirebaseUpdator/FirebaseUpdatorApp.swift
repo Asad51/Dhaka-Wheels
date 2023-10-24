@@ -24,6 +24,10 @@ struct FirebaseUpdatorApp: App {
 
     @StateObject private var firebaseData = FirebaseData()
 
+    init() {
+        DWLogger()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

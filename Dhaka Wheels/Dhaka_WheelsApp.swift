@@ -22,6 +22,10 @@ struct Dhaka_WheelsApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+    init() {
+        DWLogger()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

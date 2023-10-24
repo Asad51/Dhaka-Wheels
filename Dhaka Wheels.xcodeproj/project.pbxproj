@@ -41,7 +41,6 @@
 		DC689C7C2ADB239E00F03E07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
 		DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC689C7D2ADB254800F03E07 /* AddBus.swift */; };
 		DC689C822ADB2F6100F03E07 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC689C812ADB2F6100F03E07 /* FirebaseData.swift */; };
-		DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF832AD858DD00E9834A /* Bus.swift */; };
 		DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
 		DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */; };
 		DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */; };
@@ -97,6 +96,15 @@
 		DCD8B60C2ADB0B890039F12F /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60B2ADB0B890039F12F /* FirebaseRemoteConfigSwift */; };
 		DCD8B60E2ADB0B890039F12F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60D2ADB0B890039F12F /* FirebaseStorage */; };
 		DCD8B6102ADB0B890039F12F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = DCD8B60F2ADB0B890039F12F /* FirebaseStorageCombine-Community */; };
+		DCDD02A82AE78DF100B59B26 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02A72AE78DF100B59B26 /* CocoaLumberjack */; };
+		DCDD02AA2AE78DF100B59B26 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02A92AE78DF100B59B26 /* CocoaLumberjackSwift */; };
+		DCDD02AC2AE78DF100B59B26 /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02AB2AE78DF100B59B26 /* CocoaLumberjackSwiftLogBackend */; };
+		DCDD02AF2AE78E4500B59B26 /* DWLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */; };
+		DCDD02B12AE7984A00B59B26 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF832AD858DD00E9834A /* Bus.swift */; };
+		DCDD02B32AE7986F00B59B26 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02B22AE7986F00B59B26 /* CocoaLumberjack */; };
+		DCDD02B52AE7986F00B59B26 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02B42AE7986F00B59B26 /* CocoaLumberjackSwift */; };
+		DCDD02B72AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = DCDD02B62AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend */; };
+		DCDD02B82AE7987F00B59B26 /* DWLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */; };
 		DCDDCEF32AE6EA3600E5207C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF862AD85A3E00E9834A /* Constants.swift */; };
 		DCDDCEF52AE7015400E5207C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */; };
 		DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
@@ -141,6 +149,7 @@
 		DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionMenuView.swift; sourceTree = "<group>"; };
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogger.swift; sourceTree = "<group>"; };
 		DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRow.swift; sourceTree = "<group>"; };
 		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
@@ -163,11 +172,13 @@
 				DC689C4F2ADB22DE00F03E07 /* FirebaseAppCheck in Frameworks */,
 				DC689C4D2ADB22DE00F03E07 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				DC689C532ADB22DE00F03E07 /* FirebaseAuth in Frameworks */,
+				DCDD02B52AE7986F00B59B26 /* CocoaLumberjackSwift in Frameworks */,
 				DC689C572ADB22DE00F03E07 /* FirebaseCrashlytics in Frameworks */,
 				DC689C772ADB22DF00F03E07 /* FirebaseRemoteConfigSwift in Frameworks */,
 				DC689C692ADB22DF00F03E07 /* FirebaseInAppMessaging-Beta in Frameworks */,
 				DC689C5B2ADB22DE00F03E07 /* FirebaseDatabaseSwift in Frameworks */,
 				DC689C652ADB22DF00F03E07 /* FirebaseFunctions in Frameworks */,
+				DCDD02B32AE7986F00B59B26 /* CocoaLumberjack in Frameworks */,
 				DC689C7B2ADB22DF00F03E07 /* FirebaseStorageCombine-Community in Frameworks */,
 				DC689C752ADB22DF00F03E07 /* FirebaseRemoteConfig in Frameworks */,
 				DC689C512ADB22DE00F03E07 /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -178,6 +189,7 @@
 				DC689C5D2ADB22DE00F03E07 /* FirebaseDynamicLinks in Frameworks */,
 				DC689C612ADB22DE00F03E07 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				DC689C712ADB22DF00F03E07 /* FirebaseMessaging in Frameworks */,
+				DCDD02B72AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend in Frameworks */,
 				DC689C6D2ADB22DF00F03E07 /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,11 +209,13 @@
 				DCD8B5E42ADB0B890039F12F /* FirebaseAppCheck in Frameworks */,
 				DCD8B5E22ADB0B890039F12F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				DCD8B5E82ADB0B890039F12F /* FirebaseAuth in Frameworks */,
+				DCDD02AA2AE78DF100B59B26 /* CocoaLumberjackSwift in Frameworks */,
 				DCD8B5EC2ADB0B890039F12F /* FirebaseCrashlytics in Frameworks */,
 				DCD8B60C2ADB0B890039F12F /* FirebaseRemoteConfigSwift in Frameworks */,
 				DCD8B5FE2ADB0B890039F12F /* FirebaseInAppMessaging-Beta in Frameworks */,
 				DCD8B5F02ADB0B890039F12F /* FirebaseDatabaseSwift in Frameworks */,
 				DCD8B5FA2ADB0B890039F12F /* FirebaseFunctions in Frameworks */,
+				DCDD02A82AE78DF100B59B26 /* CocoaLumberjack in Frameworks */,
 				DCD8B6102ADB0B890039F12F /* FirebaseStorageCombine-Community in Frameworks */,
 				DCD8B60A2ADB0B890039F12F /* FirebaseRemoteConfig in Frameworks */,
 				DCD8B5E62ADB0B890039F12F /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -212,6 +226,7 @@
 				DCD8B5F22ADB0B890039F12F /* FirebaseDynamicLinks in Frameworks */,
 				DCD8B5F62ADB0B890039F12F /* FirebaseFirestoreCombine-Community in Frameworks */,
 				DCD8B6062ADB0B890039F12F /* FirebaseMessaging in Frameworks */,
+				DCDD02AC2AE78DF100B59B26 /* CocoaLumberjackSwiftLogBackend in Frameworks */,
 				DCD8B6022ADB0B890039F12F /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +322,7 @@
 				DCCFA2872AE044D600D2F741 /* Services */,
 				DCCFA2922AE0594900D2F741 /* Extensions */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
+				DCDD02AD2AE78E2200B59B26 /* Utility */,
 				DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */,
 				DCC2FF702AD842EA00E9834A /* Preview Content */,
 			);
@@ -376,6 +392,14 @@
 				DCCFA2932AE0596400D2F741 /* String+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCDD02AD2AE78E2200B59B26 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		DCE3FE642AE1948200CD1627 /* Suggestions */ = {
@@ -451,6 +475,9 @@
 				DC689C762ADB22DF00F03E07 /* FirebaseRemoteConfigSwift */,
 				DC689C782ADB22DF00F03E07 /* FirebaseStorage */,
 				DC689C7A2ADB22DF00F03E07 /* FirebaseStorageCombine-Community */,
+				DCDD02B22AE7986F00B59B26 /* CocoaLumberjack */,
+				DCDD02B42AE7986F00B59B26 /* CocoaLumberjackSwift */,
+				DCDD02B62AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend */,
 			);
 			productName = FirebaseUpdator;
 			productReference = DC689C382ADB228F00F03E07 /* FirebaseUpdator.app */;
@@ -498,6 +525,9 @@
 				DCD8B60B2ADB0B890039F12F /* FirebaseRemoteConfigSwift */,
 				DCD8B60D2ADB0B890039F12F /* FirebaseStorage */,
 				DCD8B60F2ADB0B890039F12F /* FirebaseStorageCombine-Community */,
+				DCDD02A72AE78DF100B59B26 /* CocoaLumberjack */,
+				DCDD02A92AE78DF100B59B26 /* CocoaLumberjackSwift */,
+				DCDD02AB2AE78DF100B59B26 /* CocoaLumberjackSwiftLogBackend */,
 			);
 			productName = "Dhaka Wheels";
 			productReference = DCC2FF672AD842E900E9834A /* Dhaka Wheels.app */;
@@ -533,6 +563,7 @@
 			packageReferences = (
 				DCD8B5DA2ADB0B890039F12F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DCABFED62ADBB932004DD6CF /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 			);
 			productRefGroup = DCC2FF682AD842E900E9834A /* Products */;
 			projectDirPath = "";
@@ -610,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCDD02B12AE7984A00B59B26 /* Bus.swift in Sources */,
 				DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */,
 				DCDDCEF32AE6EA3600E5207C /* Constants.swift in Sources */,
 				DC689C822ADB2F6100F03E07 /* FirebaseData.swift in Sources */,
@@ -624,8 +656,8 @@
 				DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */,
 				DCDDCEF52AE7015400E5207C /* Double+Extensions.swift in Sources */,
 				DC689C3D2ADB228F00F03E07 /* ContentView.swift in Sources */,
+				DCDD02B82AE7987F00B59B26 /* DWLogger.swift in Sources */,
 				DC689C3B2ADB228F00F03E07 /* FirebaseUpdatorApp.swift in Sources */,
-				DC689C832ADB2FDF00F03E07 /* Bus.swift in Sources */,
 				DCCFA28E2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
 				DCE3FE6C2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 			);
@@ -639,6 +671,7 @@
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCCFA28D2AE04D7100D2F741 /* BusViewModel.swift in Sources */,
 				DCCFA2892AE044F900D2F741 /* FirebaseServices.swift in Sources */,
+				DCDD02AF2AE78E4500B59B26 /* DWLogger.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
@@ -962,6 +995,14 @@
 				minimumVersion = 10.16.0;
 			};
 		};
+		DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1234,6 +1275,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DCD8B5DA2ADB0B890039F12F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		DCDD02A72AE78DF100B59B26 /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		DCDD02A92AE78DF100B59B26 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		DCDD02AB2AE78DF100B59B26 /* CocoaLumberjackSwiftLogBackend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwiftLogBackend;
+		};
+		DCDD02B22AE7986F00B59B26 /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		DCDD02B42AE7986F00B59B26 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		DCDD02B62AE7986F00B59B26 /* CocoaLumberjackSwiftLogBackend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwiftLogBackend;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
