@@ -29,7 +29,7 @@ struct SuggestionMenuView: View {
                     }
                 }
             }
-            .frame(height: suggestionRowHeight * Double(suggestions.count > 5 ? 5 : suggestions.count))
+            .frame(height: suggestionRowHeight * Double(suggestions.count > 3 ? 3 : suggestions.count))
         }
         .padding(10)
         .background(.white)

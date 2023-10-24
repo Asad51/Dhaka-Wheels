@@ -20,6 +20,7 @@ struct AddStoppage: View {
 
     @State private var editing = false
     @State private var suggestionMenuTopPadding = 0.0
+    @State private var navbarHeight = 0.0
 
     private func showSuggestions() -> Bool {
         return editing && name.trimmingCharacters(in: .whitespaces).count > 2
@@ -36,13 +37,15 @@ struct AddStoppage: View {
 
                         TextField("Stoppage name :", text: $name, onEditingChanged: { editing in
                             self.editing = editing
-                            suggestionMenuTopPadding = frame.origin.y
                         })
                         .padding()
                         .autocorrectionDisabled()
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray)
+                        }
+                        .onTapGesture {
+                            suggestionMenuTopPadding = frame.origin.y
                         }
                     }
                 }
@@ -88,15 +91,21 @@ struct AddStoppage: View {
             if showSuggestions() {
                 let suggestions = getSuggestions()
                 if !suggestions.isEmpty {
-                    // TODO: Offset behaves wired when came navigation, need to check
-                    SuggestionMenuView(suggestions: suggestions, selected: .constant(nil))
-                        .offset(y: -suggestionMenuTopPadding)
-                        .clipShape(
-                            RoundedRectangle(cornerRadius: 20)
-                                .offset(y: -suggestionMenuTopPadding)
-                        )
-                        .shadow(color: .gray, radius: 20)
-                        .padding(.horizontal, 30)
+                    VStack {
+                        SuggestionMenuView(suggestions: suggestions, selected: .constant(nil))
+                            .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            )
+                            .shadow(color: .gray, radius: 20)
+                            .padding(.horizontal, 30)
+
+                        Spacer()
+                    }
+                    .background(NavbarAccessor { navbar in
+                        navbarHeight = navbar.bounds.height
+                    })
                 }
 
             }
