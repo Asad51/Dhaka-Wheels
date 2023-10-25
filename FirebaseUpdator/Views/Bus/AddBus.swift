@@ -10,7 +10,7 @@ import SwiftUI
 struct AddBus: View {
     @EnvironmentObject private var firebaseData: FirebaseData
 
-    // Input values container
+    // MARK: Input values container
     @State private var name: String = ""
     @State private var routeNumber: String = "N/A"
     @State private var coachType: String = "Non-AC"
@@ -18,11 +18,11 @@ struct AddBus: View {
     @State private var stoppageName: String = ""
     @State private var stoppages: [Stoppage]  = []
 
-    // Error handling variables
+    // MARK: Error handling variables
     @State private var validationError = ""
     @State private var showValidationError = false
 
-    // Values for showing suggestions
+    // MARK: miValues for showing suggestions
     @State private var busNameEditing = false
     @State private var stoppageNameEditing = false
     @State private var suggestionMenuTopPadding = 0.0
@@ -48,13 +48,14 @@ struct AddBus: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
+                // MARK: Bus name input field
                 GeometryReader { reader in
                     let frame = reader.frame(in: CoordinateSpace.global)
                     
                     HStack {
                         Text("Name :")
 
-                        TextField("Bus name :", text: $name, onEditingChanged: { editing in
+                        TextField("Bus name", text: $name, onEditingChanged: { editing in
                             busNameEditing = editing
                         })
                         .padding()
@@ -110,57 +111,59 @@ struct AddBus: View {
                     
                     Spacer()
                 }
-                
-                HStack {
-                    Text("Selected Stoppages : ")
-                    
-                    Spacer()
-                }
-                
-                LazyVGrid(columns: [GridItem(.flexible(minimum: 60, maximum: 150)), GridItem(.flexible(minimum: 60, maximum: 150)), GridItem(.flexible(minimum: 60, maximum: 150))], content: {
-                    ForEach(stoppages) { stoppage in
-                        SelectedStoppage(stoppages: $stoppages, stoppage: stoppage)
-                            .padding(.top, 10)
-                    }
-                })
-                
-                HStack {
-                    Text("Select Stoppages: ")
-                    
-                    TextField("Stoppage name", text: $stoppageName, onEditingChanged: { editing in
-                        stoppageNameEditing = editing
-                    })
+
+                // MARK: Stoppage name field and add button
+                GeometryReader { reader in
+                    let frame = reader.frame(in: CoordinateSpace.global)
+                    HStack {
+                        Text("Select Stoppages: ")
+
+                        TextField("Stoppage name", text: $stoppageName, onEditingChanged: { editing in
+                            stoppageNameEditing = editing
+                        })
                         .padding()
                         .overlay {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray)
                         }
                         .autocorrectionDisabled()
-
-                    Button {
-                        if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
-                            if !stoppages.contains(where: { $0.id == stop.id}) {
-                                stoppages.append(stop)
-                            } else {
-                                validationError = "Already selected"
-                                showValidationError = true
-                            }
-
-                            stoppageName = ""
+                        .onTapGesture {
+                            suggestionMenuTopPadding = frame.origin.y
                         }
-                    } label: {
-                        Image(systemName: "plus.square")
-                            .resizable()
-                            .font(.title)
-                            .frame(width: 30, height: 30)
-                    }
-                    .onChange(of: selectedSuggestion) { 
-                        if let suggestion = selectedSuggestion, stoppageNameEditing {
-                            stoppageName = suggestion.title
+                        .onChange(of: selectedSuggestion) {
+                            if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
+                                stoppageName = stop.name
+                            }
+                        }
+
+                        Button {
+                            if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
+                                if !stoppages.contains(where: { $0.id == stop.id}) {
+                                    stoppages.append(stop)
+                                } else {
+                                    validationError = "Already selected"
+                                    showValidationError = true
+                                }
+
+                                stoppageName = ""
+                            }
+                        } label: {
+                            Image(systemName: "plus.square")
+                                .resizable()
+                                .font(.title)
+                                .frame(width: 30, height: 30)
+                        }
+                        .onChange(of: selectedSuggestion) {
+                            if let suggestion = selectedSuggestion, stoppageNameEditing {
+                                stoppageName = suggestion.title
+                            }
                         }
                     }
                 }
-                
+                .frame(height: 30)
+                .padding(.vertical, 15)
+
+                // MARK: Move to toolbar
                 Button {
                     validationError = validateBusData()
                     if validationError.isEmpty {
@@ -184,11 +187,38 @@ struct AddBus: View {
                 .alert(validationError, isPresented: $showValidationError) {
                 }
 
+                HStack {
+                    Text("Selected Stoppages : ")
+
+                    Spacer()
+                }
+
+                // MARK: Selected stoppages list for creating new bus
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.flexible(minimum: 60, maximum: 150)), GridItem(.flexible(minimum: 60, maximum: 150)), GridItem(.flexible(minimum: 60, maximum: 150))], content: {
+                        ForEach(stoppages) { stoppage in
+                            SelectedStoppage(stoppages: $stoppages, stoppage: stoppage)
+                                .padding(.top, 10)
+                        }
+                    })
+                    .padding()
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.gray, lineWidth: 1)
+                )
+
                 Spacer()
             }
 
+            // MARK: Show suggestions menu
             if showSuggestions() {
-                let suggestions = createSuggestions()
+                let suggestions = Binding<[Suggestion]>  {
+                    createSuggestions()
+                } set: { _, _ in
+                }
+
                 if !suggestions.isEmpty {
                     VStack {
                         SuggestionMenuView(suggestions: suggestions, selected: $selectedSuggestion)
@@ -210,9 +240,13 @@ struct AddBus: View {
         .padding()
     }
 
+    ///
+    /// Create suggestions based on the textfield editing
+    ///
+    ///  - Returns: Returns a list filtered items
+    ///
     private func createSuggestions() -> [Suggestion] {
         var suggestions = [Suggestion]()
-
         if showBusSuggestions() {
             suggestions = firebaseData.buses
                 .filter { $0.name.caseInsensitiveContains(name) }
@@ -224,14 +258,22 @@ struct AddBus: View {
                     )
                 }
         } else {
-            suggestions = firebaseData.stoppages.map({ id, stop in
-                Suggestion(id: id, title: stop.name, subTitle: "(\(stop.latitude), \(stop.longitude)")
-            })
+            suggestions = firebaseData.stoppages
+                .filter { $0.value.name.caseInsensitiveContains(stoppageName) }
+                .map { id, stop in
+                    Suggestion(
+                        id: id,
+                        title: stop.name,
+                        subTitle: "(\(stop.latitude.rounded(to: 4)), \(stop.longitude.rounded(to: 4))"
+                    )
+                }
         }
-
         return suggestions
     }
 
+    ///
+    /// Returns a error or empty string after validating input data
+    ///
     private func validateBusData() -> String {
         if name.isEmpty {
             return "Please enter bus name"

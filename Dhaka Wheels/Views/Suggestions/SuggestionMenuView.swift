@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SuggestionMenuView: View {
     @Environment(\.dismiss) private var dismiss
-    @State var suggestions: [Suggestion]
+    @Binding var suggestions: [Suggestion]
     @Binding var selected: Suggestion?
     
     @State private var suggestionRowHeight = 60.0
@@ -37,5 +37,5 @@ struct SuggestionMenuView: View {
 }
 
 #Preview {
-    SuggestionMenuView(suggestions: Constants.previewSuggestions, selected: .constant(nil))
+    SuggestionMenuView(suggestions: .constant(Constants.previewSuggestions), selected: .constant(nil))
 }

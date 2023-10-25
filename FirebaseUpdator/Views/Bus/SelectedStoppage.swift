@@ -18,6 +18,7 @@ struct SelectedStoppage: View {
                 .background(.gray)
                 .cornerRadius(20)
                 .foregroundStyle(.white)
+                .lineLimit(3)
             Button {
                 stoppages.removeAll(where: { stoppage.id == $0.id })
             } label: {

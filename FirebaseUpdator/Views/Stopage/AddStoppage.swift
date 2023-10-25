@@ -89,7 +89,11 @@ struct AddStoppage: View {
             }
 
             if showSuggestions() {
-                let suggestions = getSuggestions()
+                let suggestions = Binding<[Suggestion]>  {
+                    getSuggestions()
+                } set: { _, _ in
+                }
+                
                 if !suggestions.isEmpty {
                     VStack {
                         SuggestionMenuView(suggestions: suggestions, selected: .constant(nil))
