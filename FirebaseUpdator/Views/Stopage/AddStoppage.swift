@@ -19,7 +19,7 @@ struct AddStoppage: View {
     @State private var stoppage: Stoppage?
 
     @State private var editing = false
-    @State private var suggestionMenuTopPadding = 0.0
+    @State private var suggestionMenuYOffset = 0.0
     @State private var navbarHeight = 0.0
 
     private func showSuggestions() -> Bool {
@@ -29,13 +29,14 @@ struct AddStoppage: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
+                // MARK: Stoppage name textfield
                 GeometryReader { reader in
                     let frame = reader.frame(in: CoordinateSpace.global)
 
                     HStack(alignment: .center) {
                         Text("Stoppage :")
 
-                        TextField("Stoppage name :", text: $name, onEditingChanged: { editing in
+                        TextField("Enter stoppage name :", text: $name, onEditingChanged: { editing in
                             self.editing = editing
                         })
                         .padding()
@@ -45,13 +46,16 @@ struct AddStoppage: View {
                                 .stroke(.gray)
                         }
                         .onTapGesture {
-                            suggestionMenuTopPadding = frame.origin.y
+                            suggestionMenuYOffset = frame.origin.y
                         }
                     }
                 }
                 .frame(height: 30)
                 .padding(.vertical, 15)
 
+                // MARK: Coordinate textfield
+                // Coordinate input is set to the wired format [latitude, longitude]
+                // So I can copy coordinat from the map and paste it:)
                 HStack {
                     Text("Coordinate :")
 
@@ -64,11 +68,12 @@ struct AddStoppage: View {
                 }
                 .padding(.vertical, 15)
 
+                // MARK: Add stoppage button
                 Button {
                     validationError = validateStoppageData()
                     if validationError.isEmpty {
-                        if let stop = stoppage {
-                            firebaseData.addStoppage(name: stop.name, latitude: stop.latitude, longitude: stop.longitude)
+                        if let stoppage {
+                            firebaseData.addStoppage(name: stoppage.name, latitude: stoppage.latitude, longitude: stoppage.longitude)
                         }
                         name = ""
                         coordinate = ""
@@ -88,6 +93,7 @@ struct AddStoppage: View {
                 Spacer()
             }
 
+            // MARK: Display suggestions menu when typing
             if showSuggestions() {
                 let suggestions = Binding<[Suggestion]>  {
                     getSuggestions()
@@ -97,10 +103,10 @@ struct AddStoppage: View {
                 if !suggestions.isEmpty {
                     VStack {
                         SuggestionMenuView(suggestions: suggestions, selected: .constant(nil))
-                            .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            .offset(y: suggestionMenuYOffset - navbarHeight)
                             .clipShape(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .offset(y: suggestionMenuTopPadding - navbarHeight)
+                                    .offset(y: suggestionMenuYOffset - navbarHeight)
                             )
                             .shadow(color: .gray, radius: 20)
                             .padding(.horizontal, 30)
@@ -117,6 +123,11 @@ struct AddStoppage: View {
         .padding()
     }
 
+    /// 
+    /// Create list of suggestions from the stoppages
+    ///
+    /// - Returns: An array of Suggestion
+    ///
     private func getSuggestions() -> [Suggestion] {
         let suggestions = firebaseData.stoppages
             .filter { $0.value.name.caseInsensitiveContains(name) }
@@ -131,6 +142,11 @@ struct AddStoppage: View {
         return suggestions
     }
 
+    ///
+    /// Returns error or empty string after validating inputs
+    ///
+    /// - Returns: Error string
+    ///
     private func validateStoppageData() -> String {
         if name.isEmpty {
             return "Please enter name"
@@ -146,8 +162,8 @@ struct AddStoppage: View {
             }
         }
 
-        let geopoint = coordinate.split(separator: ", ")
-        guard geopoint.count == 2, let latitude = Double(geopoint[0]), let longitude = Double(geopoint[1]) else {
+        let geoPoint = coordinate.split(separator: ", ")
+        guard geoPoint.count == 2, let latitude = Double(geoPoint[0]), let longitude = Double(geoPoint[1]) else {
             return "Please enter coordinate in format: [latitude, longitude]"
         }
 

@@ -20,6 +20,8 @@ struct SuggestionMenuView: View {
                 LazyVStack(spacing: 0) {
                     ForEach(suggestions) { suggestion in
                         SuggestionRow(suggestion: suggestion, suggestionRowHeight: $suggestionRowHeight)
+                            .frame(maxWidth: .infinity)
+                            .background(.white) // To make whole row tappable
                             .onTapGesture {
                                 selected = suggestion
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

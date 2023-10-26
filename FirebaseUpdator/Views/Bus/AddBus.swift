@@ -25,7 +25,7 @@ struct AddBus: View {
     // MARK: miValues for showing suggestions
     @State private var busNameEditing = false
     @State private var stoppageNameEditing = false
-    @State private var suggestionMenuTopPadding = 0.0
+    @State private var suggestionMenuYOffset = 0.0
     @State private var navbarHeight = 0.0
     @State private var selectedSuggestion: Suggestion?
 
@@ -48,7 +48,7 @@ struct AddBus: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
             VStack {
-                // MARK: Bus name input field
+                // MARK: - Bus name input field
                 GeometryReader { reader in
                     let frame = reader.frame(in: CoordinateSpace.global)
                     
@@ -65,13 +65,14 @@ struct AddBus: View {
                         }
                         .autocorrectionDisabled()
                         .onTapGesture {
-                            suggestionMenuTopPadding = frame.origin.y
+                            suggestionMenuYOffset = frame.origin.y
                         }
                     }
                 }
                 .frame(height: 30)
                 .padding(.vertical, 15)
 
+                // MARK: - Bus info fields
                 HStack {
                     Text("Route No: ")
                     
@@ -128,7 +129,7 @@ struct AddBus: View {
                         }
                         .autocorrectionDisabled()
                         .onTapGesture {
-                            suggestionMenuTopPadding = frame.origin.y
+                            suggestionMenuYOffset = frame.origin.y
                         }
                         .onChange(of: selectedSuggestion) {
                             if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
@@ -163,7 +164,7 @@ struct AddBus: View {
                 .frame(height: 30)
                 .padding(.vertical, 15)
 
-                // MARK: Move to toolbar
+                // TODO: Move to toolbar
                 Button {
                     validationError = validateBusData()
                     if validationError.isEmpty {
@@ -222,10 +223,10 @@ struct AddBus: View {
                 if !suggestions.isEmpty {
                     VStack {
                         SuggestionMenuView(suggestions: suggestions, selected: $selectedSuggestion)
-                            .offset(y: suggestionMenuTopPadding - navbarHeight)
+                            .offset(y: suggestionMenuYOffset - navbarHeight)
                             .clipShape(
                                 RoundedRectangle(cornerRadius: 20)
-                                    .offset(y: suggestionMenuTopPadding - navbarHeight)
+                                    .offset(y: suggestionMenuYOffset - navbarHeight)
                             )
                             .shadow(color: .gray, radius: 20)
                             .padding(.horizontal, 30)
@@ -264,7 +265,7 @@ struct AddBus: View {
                     Suggestion(
                         id: id,
                         title: stop.name,
-                        subTitle: "(\(stop.latitude.rounded(to: 4)), \(stop.longitude.rounded(to: 4))"
+                        subTitle: "(\(stop.latitude.rounded(to: 4)), \(stop.longitude.rounded(to: 4)))"
                     )
                 }
         }
