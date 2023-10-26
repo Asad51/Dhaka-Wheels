@@ -97,11 +97,9 @@ struct AddBus: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
+
                 HStack {
                     Text("Service Type: ")
-                    
-                    Spacer()
                     
                     Picker("Service Type", selection: $serviceType) {
                         ForEach(serviceTypes, id: \.self) { type in
@@ -112,12 +110,14 @@ struct AddBus: View {
                     
                     Spacer()
                 }
+                .frame(height: 30)
+                .padding(.vertical, 15)
 
                 // MARK: Stoppage name field and add button
                 GeometryReader { reader in
                     let frame = reader.frame(in: CoordinateSpace.global)
                     HStack {
-                        Text("Select Stoppages: ")
+                        Text("Search Stoppage: ")
 
                         TextField("Stoppage name", text: $stoppageName, onEditingChanged: { editing in
                             stoppageNameEditing = editing
@@ -162,37 +162,14 @@ struct AddBus: View {
                     }
                 }
                 .frame(height: 30)
-                .padding(.vertical, 15)
-
-                // TODO: Move to toolbar
-                Button {
-                    validationError = validateBusData()
-                    if validationError.isEmpty {
-                        firebaseData.addBus(name: name, routeNumber: routeNumber, coachType: coachType, serviceType: serviceType, stoppages: stoppages)
-
-                        name = ""
-                        routeNumber = "N/A"
-                        stoppages.removeAll()
-                    } else {
-                        showValidationError = true
-                    }
-                } label: {
-                    Text("Add")
-                }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(.blue)
-                .foregroundColor(.white)
-                .cornerRadius(20)
-                .padding(30)
-                .alert(validationError, isPresented: $showValidationError) {
-                }
+                .padding(.bottom, 30)
 
                 HStack {
                     Text("Selected Stoppages : ")
 
                     Spacer()
                 }
+                .padding(.top, 10)
 
                 // MARK: Selected stoppages list for creating new bus
                 ScrollView {
@@ -211,6 +188,40 @@ struct AddBus: View {
                 )
 
                 Spacer()
+            }
+            .toolbar {
+                // MARK: - Save bus, toolbar button
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        validationError = validateBusData()
+                        if validationError.isEmpty {
+                            firebaseData.addBus(name: name, routeNumber: routeNumber, coachType: coachType, serviceType: serviceType, stoppages: stoppages)
+
+                            name = ""
+                            routeNumber = "N/A"
+                            stoppages.removeAll()
+                        } else {
+                            showValidationError = true
+                        }
+                    } label: {
+                        Text("Save")
+                    }
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding(.trailing, 10)
+                    .alert(validationError, isPresented: $showValidationError) {
+                    }
+                }
+
+                // To center the text of previous item
+                // https://stackoverflow.com/questions/63441821/right-aligning-a-bottombar-toolbaritem-in-swiftui-for-ios-14
+                ToolbarItem(placement: .topBarTrailing) {
+                    Spacer()
+                }
             }
 
             // MARK: Show suggestions menu
@@ -238,6 +249,7 @@ struct AddBus: View {
                 }
             }
         }
+        .navigationTitle("Bus Details")
         .padding()
     }
 
@@ -292,7 +304,7 @@ struct AddBus: View {
             return "Plese select at least two stoppages"
         }
 
-        if firebaseData.buses.filter({ $0.name == name && $0.routeNumber == routeNumber }).count > 0 {
+        if firebaseData.buses.filter({ $0.name == name && $0.stoppages.first == stoppages.first && $0.stoppages.last == stoppages.last }).count > 0 {
             return "The bus is already exist"
         }
 
