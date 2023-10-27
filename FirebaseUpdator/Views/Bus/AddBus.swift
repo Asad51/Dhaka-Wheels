@@ -82,6 +82,7 @@ struct AddBus: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(.gray)
                         }
+                        .textInputAutocapitalization(.never)
                 }
                 .padding(.vertical, 15)
 
@@ -133,12 +134,6 @@ struct AddBus: View {
                         }
                         .onChange(of: selectedSuggestion) {
                             if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
-                                stoppageName = stop.name
-                            }
-                        }
-
-                        Button {
-                            if let suggestion = selectedSuggestion, let stop = firebaseData.stoppages[suggestion.id] {
                                 if !stoppages.contains(where: { $0.id == stop.id}) {
                                     stoppages.append(stop)
                                 } else {
@@ -147,16 +142,6 @@ struct AddBus: View {
                                 }
 
                                 stoppageName = ""
-                            }
-                        } label: {
-                            Image(systemName: "plus.square")
-                                .resizable()
-                                .font(.title)
-                                .frame(width: 30, height: 30)
-                        }
-                        .onChange(of: selectedSuggestion) {
-                            if let suggestion = selectedSuggestion, stoppageNameEditing {
-                                stoppageName = suggestion.title
                             }
                         }
                     }
