@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SearchView: View {
+    @EnvironmentObject private var firebaseData: FirebaseData
+    
     @State private var startingLocation: String = ""
     @State private var endingLocation: String = ""
     @State var buses = [Bus]()
@@ -101,4 +103,5 @@ struct SearchView: View {
 
 #Preview {
     SearchView(buses: Constants.previewBuses)
+        .environmentObject(FirebaseData())
 }

@@ -21,6 +21,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Dhaka_WheelsApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @StateObject private var firebaseData = FirebaseData()
 
     init() {
         DWLogger()
@@ -30,6 +32,10 @@ struct Dhaka_WheelsApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(.light)
+                .environmentObject(firebaseData)
+                .task {
+                    await firebaseData.fetchData()
+                }
         }
     }
 }
