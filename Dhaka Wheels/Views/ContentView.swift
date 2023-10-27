@@ -10,7 +10,20 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack(alignment: .top) {
-            HomeView()
+            TabView {
+                SearchView()
+                    .tabItem {
+                        Label("Search", systemImage: "magnifyingglass")
+                    }
+
+                AllBustList()
+                    .tabItem {
+                        Label("All Bus", systemImage: "list.bullet.circle.fill")
+                    }
+            }
+            .onAppear {
+                UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+            }
         }
     }
 }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct AllBustList: View {
-    @State var buses = [Bus]()
+    @EnvironmentObject private var firebaseData: FirebaseData
     
     var body: some View {
         NavigationStack {
-            List(buses, id: \.self) { bus in
+            List(firebaseData.buses, id: \.self) { bus in
                 NavigationLink {
                     BusDetailView(bus: bus)
                 } label: {
@@ -25,5 +25,6 @@ struct AllBustList: View {
 }
 
 #Preview {
-    AllBustList(buses: Constants.previewBuses)
+    AllBustList()
+        .environmentObject(FirebaseData())
 }
