@@ -66,7 +66,6 @@ final class FirebaseData: ObservableObject {
 
     func fetchBuses() async throws {
         let documents = try await firestore.collection("buses").getDocuments().documents
-        var busStoppages = [Stoppage]()
 
         self.buses = documents.map({ document in
             let name = document["name"] as? String ?? ""
@@ -75,6 +74,7 @@ final class FirebaseData: ObservableObject {
             let coachType = document["coachType"] as? String ?? ""
             let serviceType = document["serviceType"] as? String ?? ""
             let stoppagesRef = document["stoppages"] as? Array<DocumentReference>
+            var busStoppages = [Stoppage]()
 
             stoppagesRef?.forEach({ ref in
                 if let stoppage = self.stoppages[ref.documentID] {
