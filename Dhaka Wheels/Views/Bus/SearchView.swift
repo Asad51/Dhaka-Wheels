@@ -72,6 +72,7 @@ struct SearchView: View {
                 List(filteredBuses, id: \.self) { bus in
                     NavigationLink {
                         BusDetailView(bus: bus)
+                            .toolbar(.hidden, for: .tabBar)
                     } label: {
                         BusRow(bus: bus)
                     }

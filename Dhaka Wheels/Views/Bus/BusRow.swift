@@ -12,10 +12,17 @@ struct BusRow: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "bus.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 50)
+            AsyncImage(url: URL(string: bus.imageUrl)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+            } placeholder: {
+                Image(systemName: "bus.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+            }
 
             VStack(alignment: .leading) {
                 Text(bus.name)
@@ -30,8 +37,10 @@ struct BusRow: View {
 
             Spacer()
 
-            Text(bus.serviceType)
-                .font(.title3)
+            VStack {
+                Text(bus.coachType)
+                Text(bus.serviceType)
+            }
         }
     }
 }
