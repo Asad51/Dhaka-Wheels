@@ -15,6 +15,7 @@ struct AllBustList: View {
             List(firebaseData.buses, id: \.self) { bus in
                 NavigationLink {
                     BusDetailView(bus: bus)
+                        .toolbar(.hidden, for: .tabBar)
                 } label: {
                     BusRow(bus: bus)
                 }
