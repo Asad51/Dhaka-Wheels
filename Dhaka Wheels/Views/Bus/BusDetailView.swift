@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BusDetailView: View {
     let bus: Bus
+    @State private var showMap = false
 
     var body: some View {
         VStack {
@@ -50,7 +51,7 @@ struct BusDetailView: View {
                     .foregroundStyle(.blue)
 
                 Button {
-
+                    showMap = true
                 } label: {
                     Image(systemName: "map.fill")
                     Text("View in Map")
@@ -90,6 +91,9 @@ struct BusDetailView: View {
                 .padding()
                 .frame(maxWidth: .infinity)
             }
+        }
+        .fullScreenCover(isPresented: $showMap) {
+            MapView(stoppages: bus.stoppages)
         }
     }
 }

@@ -17,8 +17,8 @@ struct Constants {
             coachType: "Non-AC",
             serviceType: "Sitting",
             stoppages: [
-                Stoppage(id: "InvalidId1", name: "Moghbazar", latitude: 23.038323, longitude: 90.353632),
-                Stoppage(id: "InvalidId1", name: "Kawran Bazar", latitude: 23.038323, longitude: 90.353632)
+                Stoppage(id: "InvalidId1", name: "Moghbazar", latitude: 23.74847198433284, longitude: 90.40270312675771),
+                Stoppage(id: "InvalidId1", name: "Kawran Bazar", latitude: 23.74993366314999, longitude: 90.39323594127315)
             ]
         )
     ]

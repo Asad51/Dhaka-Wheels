@@ -141,6 +141,7 @@
 		DCCFA2962AE061E900D2F741 /* SuggestionMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionMenuView.swift; sourceTree = "<group>"; };
 		DCD8B5D72ADAFA230039F12F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCD954AB2AEE4C53007583BB /* Moghbazar_Provati.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Moghbazar_Provati.gpx; sourceTree = "<group>"; };
 		DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogger.swift; sourceTree = "<group>"; };
 		DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarAccessor.swift; sourceTree = "<group>"; };
 		DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
@@ -407,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				DCCC6C1F2ADA996C00E95C2D /* MapView.swift */,
+				DCD954AB2AEE4C53007583BB /* Moghbazar_Provati.gpx */,
 			);
 			path = Stoppage;
 			sourceTree = "<group>";
