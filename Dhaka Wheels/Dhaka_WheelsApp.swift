@@ -25,7 +25,7 @@ struct Dhaka_WheelsApp: App {
     @StateObject private var firebaseData = FirebaseData()
 
     init() {
-        DWLogger()
+        DWLogger.initialize()
     }
 
     var body: some Scene {
