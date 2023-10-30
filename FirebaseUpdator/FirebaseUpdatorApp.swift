@@ -25,7 +25,7 @@ struct FirebaseUpdatorApp: App {
     @StateObject private var firebaseData = FirebaseData()
 
     init() {
-        DWLogger()
+        DWLogger.initialize()
     }
 
     var body: some Scene {

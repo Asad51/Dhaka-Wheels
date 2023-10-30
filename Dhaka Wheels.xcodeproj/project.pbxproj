@@ -108,6 +108,10 @@
 		DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
 		DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */; };
 		DCE3FE6C2AE196AC00CD1627 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */; };
+		DCE6CD902AF0214500468C0D /* DWLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */; };
+		DCE6CD912AF0214500468C0D /* DWLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */; };
+		DCE6CD932AF0238F00468C0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD922AF0238F00468C0D /* Logging.swift */; };
+		DCE6CD942AF0238F00468C0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD922AF0238F00468C0D /* Logging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +151,8 @@
 		DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRow.swift; sourceTree = "<group>"; };
 		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
+		DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogFormatter.swift; sourceTree = "<group>"; };
+		DCE6CD922AF0238F00468C0D /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,7 +384,7 @@
 		DCDD02AD2AE78E2200B59B26 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */,
+				DCE6CD8E2AF0212200468C0D /* Logger */,
 				DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */,
 			);
 			path = Utility;
@@ -411,6 +417,16 @@
 				DCD954AB2AEE4C53007583BB /* Moghbazar_Provati.gpx */,
 			);
 			path = Stoppage;
+			sourceTree = "<group>";
+		};
+		DCE6CD8E2AF0212200468C0D /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */,
+				DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */,
+				DCE6CD922AF0238F00468C0D /* Logging.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,11 +647,13 @@
 				DCCFA2952AE0596400D2F741 /* String+Extensions.swift in Sources */,
 				DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */,
 				DCDD02BE2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */,
+				DCE6CD942AF0238F00468C0D /* Logging.swift in Sources */,
 				DCD73E272AEC2C3F00B76128 /* FirebaseData.swift in Sources */,
 				DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */,
 				DCCFA2982AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
 				DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */,
 				DCDDCEF52AE7015400E5207C /* Double+Extensions.swift in Sources */,
+				DCE6CD912AF0214500468C0D /* DWLogFormatter.swift in Sources */,
 				DC689C3D2ADB228F00F03E07 /* ContentView.swift in Sources */,
 				DCDD02B82AE7987F00B59B26 /* DWLogger.swift in Sources */,
 				DC689C3B2ADB228F00F03E07 /* FirebaseUpdatorApp.swift in Sources */,
@@ -649,6 +667,7 @@
 			files = (
 				DCDD02BD2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */,
 				DCC2FF842AD858DD00E9834A /* Bus.swift in Sources */,
+				DCE6CD902AF0214500468C0D /* DWLogFormatter.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCDD02AF2AE78E4500B59B26 /* DWLogger.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
@@ -657,6 +676,7 @@
 				DCD73E262AEC2C3600B76128 /* FirebaseData.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
+				DCE6CD932AF0238F00468C0D /* Logging.swift in Sources */,
 				DCCFA2942AE0596400D2F741 /* String+Extensions.swift in Sources */,
 				DCCCE9C42AED9427001EFA95 /* Color+Extensions.swift in Sources */,
 				DCCFA2972AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
