@@ -63,3 +63,20 @@ class DWConsoleLogFormatter: NSObject, DDLogFormatter {
         return String("[TID:\(logMessage.threadID)] \(queueLabel)[\(fileName)::\(methodName)::line \(lineNo)] \(logType)\(msg)")
     }
 }
+
+/// Log formatter class for File Logger
+class DWFileLogFormatter: NSObject, DDLogFormatter {
+    let dateFormatter = DateFormatter()
+
+    override init() {
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS Z"
+    }
+
+    func format(message logMessage: DDLogMessage) -> String? {
+        let (logType, queueLabel, msg, fileName, methodName, lineNo) = processLogMessage(logMessage)
+
+        let timestamp = dateFormatter.string(from: logMessage.timestamp)
+
+        return String("\(timestamp) [TID:\(logMessage.threadID)] \(queueLabel)[\(fileName)::\(methodName)::line \(lineNo)] \(logType)\(msg)")
+    }
+}
