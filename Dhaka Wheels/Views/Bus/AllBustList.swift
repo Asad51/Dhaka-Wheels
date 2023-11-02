@@ -9,10 +9,21 @@ import SwiftUI
 
 struct AllBustList: View {
     @EnvironmentObject private var firebaseData: FirebaseData
-    
+
+    @State private var searchText: String = ""
+
+    private var filteredBuses: [Bus] {
+        if searchText.isEmpty {
+            return firebaseData.buses
+        }
+        
+        return firebaseData.buses
+            .filter { $0.name.caseInsensitiveContains(searchText) }
+    }
+
     var body: some View {
         NavigationStack {
-            List(firebaseData.buses, id: \.self) { bus in
+            List(filteredBuses) { bus in
                 NavigationLink {
                     BusDetailView(bus: bus)
                         .toolbar(.hidden, for: .tabBar)
@@ -22,6 +33,7 @@ struct AllBustList: View {
             }
             .listStyle(.inset)
         }
+        .searchable(text: $searchText)
     }
 }
 

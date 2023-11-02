@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bus: Hashable, Decodable {
+struct Bus: Hashable, Decodable, Identifiable {
     let id: String
     let name: String
     let routeNumber: String
