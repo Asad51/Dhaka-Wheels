@@ -1,9 +1,9 @@
-    //
-    //  SearchView.swift
-    //  Dhaka Wheels
-    //
-    //  Created by Md. Asadul Islam on 12/10/23.
-    //
+//
+//  SearchView.swift
+//  Dhaka Wheels
+//
+//  Created by Md. Asadul Islam on 12/10/23.
+//
 
 import SwiftUI
 
@@ -56,9 +56,11 @@ struct SearchView: View {
                                 .onTapGesture {
                                     suggestionMenuYOffset = frame.origin.y
                                 }
+                                .onChange(of: startingLocation) {
+                                    filterBuses()
+                                }
                                 .onChange(of: startingStoppage) {
                                     startingLocation = startingStoppage?.title ?? startingLocation
-                                    filterBuses()
                                 }
                             }
 
@@ -78,9 +80,11 @@ struct SearchView: View {
                                 .onTapGesture {
                                     suggestionMenuYOffset = frame.origin.y
                                 }
+                                .onChange(of: endingLocation) {
+                                    filterBuses()
+                                }
                                 .onChange(of: destinationStoppage) {
                                     endingLocation = destinationStoppage?.title ?? endingLocation
-                                    filterBuses()
                                 }
                             }
                         }
@@ -93,10 +97,12 @@ struct SearchView: View {
                     }
 
                     if filteredBuses.isEmpty {
-                        Text("No buses found.")
-                            .font(.title)
-                            .foregroundStyle(.teal)
-                            .padding(.top, 20)
+                        if !startingLocation.isEmpty || !endingLocation.isEmpty {
+                            Text("No buses found.")
+                                .font(.title)
+                                .foregroundStyle(.teal)
+                                .padding(.top, 20)
+                        }
                     } else {
                         Text("Search results")
                             .font(.title2)
