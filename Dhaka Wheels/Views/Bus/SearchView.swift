@@ -97,15 +97,22 @@ struct SearchView: View {
                     }
 
                     if filteredBuses.isEmpty {
-                        if !startingLocation.isEmpty || !endingLocation.isEmpty {
-                            Text("No buses found.")
-                                .font(.title)
+                        if startingLocation.isEmpty || endingLocation.isEmpty {
+                            Text("Enter starting and ending stoppages to find bus.")
+                                .font(.title2)
+                                .multilineTextAlignment(.center)
                                 .foregroundStyle(.teal)
+                                .padding(.top, 20)
+                        } else {
+                            Text("No buses found.")
+                                .font(.title2)
+                                .foregroundStyle(.red)
                                 .padding(.top, 20)
                         }
                     } else {
                         Text("Search results")
                             .font(.title2)
+                        Divider()
 
                         // MARK: - Search results
                         List(filteredBuses, id: \.self) { bus in
@@ -115,12 +122,11 @@ struct SearchView: View {
                             } label: {
                                 BusRow(bus: bus)
                             }
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                         }
                         .listStyle(.inset)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.gray, lineWidth: 2)
-                        }
                     }
 
                     Spacer()
@@ -174,7 +180,7 @@ struct SearchView: View {
     }
 
     private func contains(stoppages: [Stoppage]) -> Bool {
-        return stoppages.contains(where: { $0.name.caseInsensitiveEqual(startingLocation) }) && stoppages.contains(where: { $0.name.caseInsensitiveContains(endingLocation) })
+        return stoppages.contains(where: { $0.name.caseInsensitiveEqual(startingLocation) }) && stoppages.contains(where: { $0.name.caseInsensitiveEqual(endingLocation) })
     }
 }
 

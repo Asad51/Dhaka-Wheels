@@ -18,7 +18,7 @@ struct SuggestionMenuView: View {
         VStack {
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(suggestions) { suggestion in
+                    ForEach(suggestions.sorted { $0.title < $1.title }) { suggestion in
                         SuggestionRow(suggestion: suggestion, suggestionRowHeight: $suggestionRowHeight)
                             .frame(maxWidth: .infinity)
                             .background(.white) // To make whole row tappable
@@ -31,7 +31,7 @@ struct SuggestionMenuView: View {
                     }
                 }
             }
-            .frame(height: suggestionRowHeight * Double(suggestions.count > 3 ? 3 : suggestions.count))
+            .frame(height: suggestionRowHeight * Double(suggestions.count > 5 ? 5 : suggestions.count))
         }
         .padding(10)
         .background(.white)

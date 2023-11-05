@@ -35,6 +35,9 @@ struct BusList: View {
                     } label: {
                         BusRow(bus: bus)
                     }
+                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
             } else {
@@ -48,10 +51,13 @@ struct BusList: View {
                                 } label: {
                                     BusRow(bus: bus)
                                 }
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             }
                         } header: {
                             Text(key.uppercased())
                         }
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     }
                 }
                 .listStyle(.inset)
