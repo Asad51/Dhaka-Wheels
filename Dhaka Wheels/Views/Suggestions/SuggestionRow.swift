@@ -14,7 +14,7 @@ struct SuggestionRow: View {
     var body: some View {
         VStack {
             Text(suggestion.title)
-                .font(.title)
+                .font(.title2)
 
             if !suggestion.subTitle.isEmpty {
                 Text(suggestion.subTitle)

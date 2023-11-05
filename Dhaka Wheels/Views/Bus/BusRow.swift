@@ -42,6 +42,7 @@ struct BusRow: View {
                 Text(bus.serviceType)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
