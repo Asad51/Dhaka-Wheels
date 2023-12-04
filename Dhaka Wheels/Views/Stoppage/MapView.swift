@@ -26,7 +26,6 @@ struct MapView: View {
             }
             .mapStyle(.hybrid(elevation: .flat))
             .mapControls {
-                MapUserLocationButton()
                 MapCompass()
                 MapScaleView()
             }
