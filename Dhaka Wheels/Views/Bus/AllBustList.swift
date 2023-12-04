@@ -14,6 +14,7 @@ struct BusList: View {
     var searchText: String
 
     private var filteredBuses: [Bus] {
+        DWLogDebug(buses)
         if searchText.isEmpty {
             return buses
         }
@@ -26,43 +27,61 @@ struct BusList: View {
     }
 
     var body: some View {
-        VStack {
+        Group {
             if isSearching {
                 List(filteredBuses.sorted { $0.name < $1.name }) { bus in
-                    NavigationLink {
-                        BusDetailView(bus: bus)
-                            .toolbar(.hidden, for: .tabBar)
-                    } label: {
+                    // Using ZStack, EmptyView and opacity 0 to remove left arrow for NavigationLink
+                    // Ref: https://thinkdiff.net/swiftui-navigationlink-hide-arrow-indicator-on-list-b842bcb78c79
+                    ZStack {
+                        NavigationLink {
+                            BusDetailView(bus: bus)
+                                .toolbar(.hidden, for: .tabBar)
+                        } label: {
+                            EmptyView()
+                        }
+                        .opacity(0)
+                        .alignmentGuide(.listRowSeparatorLeading) { dimension in
+                            dimension[.leading]
+                        }
+
                         BusRow(bus: bus)
                     }
-                    .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
                 }
-                .listStyle(.plain)
+                .listRowBackground(Color.lffD1E)
+                .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+                .listStyle(.insetGrouped)
             } else {
                 List {
                     ForEach(groupedBuses.sorted(by: { $0.0 < $1.0 }), id: \.key) { key, buses in
                         Section {
                             ForEach(buses.sorted { $0.name < $1.name }) { bus in
-                                NavigationLink {
-                                    BusDetailView(bus: bus)
-                                        .toolbar(.hidden, for: .tabBar)
-                                } label: {
+                                ZStack {
+                                    NavigationLink {
+                                        BusDetailView(bus: bus)
+                                            .toolbar(.hidden, for: .tabBar)
+                                    } label: {
+                                        EmptyView()
+                                    }
+                                    .opacity(0)
+                                    .alignmentGuide(.listRowSeparatorLeading) { dimension in
+                                        dimension[.leading]
+                                    }
+
                                     BusRow(bus: bus)
                                 }
-                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             }
                         } header: {
                             Text(key.uppercased())
                         }
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
+
                     }
                 }
-                .listStyle(.inset)
+                .listRowBackground(Color.lffD1E)
+                .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+                .listStyle(.insetGrouped)
             }
         }
+        .background(.lf6D01)
     }
 }
 

@@ -24,6 +24,8 @@ struct BusRow: View {
                     .frame(width: 50, height: 50)
             }
 
+            Spacer(minLength: 10)
+
             VStack(alignment: .leading) {
                 Text(bus.name)
                     .font(.title)
@@ -33,9 +35,8 @@ struct BusRow: View {
                 Text("\(bus.stoppages.first?.name ?? "") - \(bus.stoppages.last?.name ?? "")")
                     .font(.subheadline)
             }
-            .padding()
 
-            Spacer()
+            Spacer(minLength: 10)
 
             VStack {
                 Text(bus.coachType)
