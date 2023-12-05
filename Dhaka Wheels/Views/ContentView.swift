@@ -11,23 +11,21 @@ struct ContentView: View {
     @EnvironmentObject private var firebaseData: FirebaseData
 
     var body: some View {
-        HStack(alignment: .top) {
-            TabView {
-                SearchView()
-                    .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
-                    }
-                    .environmentObject(firebaseData)
+        TabView {
+            SearchView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+                .environmentObject(firebaseData)
 
-                AllBustList()
-                    .tabItem {
-                        Label("All Bus", systemImage: "list.bullet.circle.fill")
-                    }
-                    .environmentObject(firebaseData)
-            }
-            .onAppear {
-                UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
-            }
+            AllBustList()
+                .tabItem {
+                    Label("All Bus", systemImage: "list.bullet.circle.fill")
+                }
+                .environmentObject(firebaseData)
+        }
+        .onAppear {
+            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
         }
     }
 }

@@ -31,7 +31,6 @@ struct Dhaka_WheelsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.light)
                 .environmentObject(firebaseData)
                 .task {
                     await firebaseData.fetchData()

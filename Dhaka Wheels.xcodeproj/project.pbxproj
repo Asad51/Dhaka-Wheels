@@ -104,6 +104,7 @@
 		DCDD02BE2AE8573F00B59B26 /* NavbarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */; };
 		DCDDCEF32AE6EA3600E5207C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF862AD85A3E00E9834A /* Constants.swift */; };
 		DCDDCEF52AE7015400E5207C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */; };
+		DCE259352B1F808000E05CE0 /* BusRowNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE259342B1F808000E05CE0 /* BusRowNavigationView.swift */; };
 		DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
 		DCE3FE692AE195CB00CD1627 /* SuggestionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */; };
 		DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */; };
@@ -149,6 +150,7 @@
 		DCDD02AE2AE78E4500B59B26 /* DWLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogger.swift; sourceTree = "<group>"; };
 		DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarAccessor.swift; sourceTree = "<group>"; };
 		DCDDCEF42AE7015400E5207C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		DCE259342B1F808000E05CE0 /* BusRowNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusRowNavigationView.swift; sourceTree = "<group>"; };
 		DCE3FE672AE195CB00CD1627 /* SuggestionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionRow.swift; sourceTree = "<group>"; };
 		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogFormatter.swift; sourceTree = "<group>"; };
@@ -403,9 +405,10 @@
 			isa = PBXGroup;
 			children = (
 				DCC2FF7B2AD84A3500E9834A /* SearchView.swift */,
+				DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */,
+				DCE259342B1F808000E05CE0 /* BusRowNavigationView.swift */,
 				DCC2FF7D2AD84E1E00E9834A /* BusRow.swift */,
 				DCC2FF882AD85D4E00E9834A /* BusDetailView.swift */,
-				DCCC6C1D2ADA945700E95C2D /* AllBustList.swift */,
 			);
 			path = Bus;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
+				DCE259352B1F808000E05CE0 /* BusRowNavigationView.swift in Sources */,
 				DCD73E262AEC2C3600B76128 /* FirebaseData.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
 				DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */,
@@ -889,7 +893,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -924,7 +928,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
