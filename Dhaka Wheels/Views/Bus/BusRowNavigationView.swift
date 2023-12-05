@@ -29,6 +29,7 @@ struct BusRowNavigationView: View {
             BusRow(bus: bus)
         }
         .listRowBackground(Color.lffD1E)
+        .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
     }
 }
 
