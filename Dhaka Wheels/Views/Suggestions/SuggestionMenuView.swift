@@ -21,7 +21,7 @@ struct SuggestionMenuView: View {
                     ForEach(suggestions.sorted { $0.title < $1.title }) { suggestion in
                         SuggestionRow(suggestion: suggestion, suggestionRowHeight: $suggestionRowHeight)
                             .frame(maxWidth: .infinity)
-                            .background(.white) // To make whole row tappable
+                            .background(.lffD1E) // To make whole row tappable
                             .onTapGesture {
                                 selected = suggestion
                                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -34,7 +34,7 @@ struct SuggestionMenuView: View {
             .frame(height: suggestionRowHeight * Double(suggestions.count > 5 ? 5 : suggestions.count))
         }
         .padding(10)
-        .background(.white)
+        .background(.lffD1E)
     }
 }
 

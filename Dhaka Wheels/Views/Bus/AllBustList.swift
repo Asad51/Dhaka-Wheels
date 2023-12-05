@@ -35,7 +35,6 @@ struct BusList: View {
                     BusRowNavigationView(bus: bus)
                 }
                 .scrollContentBackground(.hidden)
-                .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .listStyle(.insetGrouped)
             } else {
                 List {
@@ -52,7 +51,6 @@ struct BusList: View {
                     
                 }
                 .scrollContentBackground(.hidden)
-                .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .listStyle(.insetGrouped)
             }
         }

@@ -140,14 +140,13 @@ struct SearchView: View {
                                     .font(.title2)
                                 Divider()
                             }
-                            .padding(.horizontal)
+                            .padding(.horizontal, 10)
 
                             // MARK: - Search results
                             List(filteredBuses, id: \.self) { bus in
                                 BusRowNavigationView(bus: bus)
                             }
                             .scrollContentBackground(.hidden)
-                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                             .listStyle(.insetGrouped)
                         }
 
@@ -171,7 +170,7 @@ struct SearchView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .offset(y: suggestionMenuYOffset)
                             )
-                            .shadow(color: .gray, radius: 20)
+                            .shadow(color: .l00Dff.opacity(0.5), radius: 10)
                             .padding(.horizontal, 30)
                     }
                 }
