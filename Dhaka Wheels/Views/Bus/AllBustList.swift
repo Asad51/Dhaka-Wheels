@@ -14,7 +14,6 @@ struct BusList: View {
     var searchText: String
 
     private var filteredBuses: [Bus] {
-        DWLogDebug(buses)
         if searchText.isEmpty {
             return buses
         }
@@ -23,31 +22,19 @@ struct BusList: View {
     }
 
     private var groupedBuses: Dictionary<String, [Bus]> {
-        return Dictionary(grouping: buses, by: { $0.name.first?.isLetter == true ? String($0.name.first!) : "*" })
+        return Dictionary(grouping: buses, by: { $0.name.first?.isLetter == true ? String($0.name.first!) : "#" })
     }
 
     var body: some View {
-        Group {
+        ZStack {
+            Color.lf6D01
+                .ignoresSafeArea()
+
             if isSearching {
                 List(filteredBuses.sorted { $0.name < $1.name }) { bus in
-                    // Using ZStack, EmptyView and opacity 0 to remove left arrow for NavigationLink
-                    // Ref: https://thinkdiff.net/swiftui-navigationlink-hide-arrow-indicator-on-list-b842bcb78c79
-                    ZStack {
-                        NavigationLink {
-                            BusDetailView(bus: bus)
-                                .toolbar(.hidden, for: .tabBar)
-                        } label: {
-                            EmptyView()
-                        }
-                        .opacity(0)
-                        .alignmentGuide(.listRowSeparatorLeading) { dimension in
-                            dimension[.leading]
-                        }
-
-                        BusRow(bus: bus)
-                    }
+                    BusRowNavigationView(bus: bus)
                 }
-                .listRowBackground(Color.lffD1E)
+                .scrollContentBackground(.hidden)
                 .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .listStyle(.insetGrouped)
             } else {
@@ -55,33 +42,20 @@ struct BusList: View {
                     ForEach(groupedBuses.sorted(by: { $0.0 < $1.0 }), id: \.key) { key, buses in
                         Section {
                             ForEach(buses.sorted { $0.name < $1.name }) { bus in
-                                ZStack {
-                                    NavigationLink {
-                                        BusDetailView(bus: bus)
-                                            .toolbar(.hidden, for: .tabBar)
-                                    } label: {
-                                        EmptyView()
-                                    }
-                                    .opacity(0)
-                                    .alignmentGuide(.listRowSeparatorLeading) { dimension in
-                                        dimension[.leading]
-                                    }
-
-                                    BusRow(bus: bus)
-                                }
+                                BusRowNavigationView(bus: bus)
                             }
                         } header: {
                             Text(key.uppercased())
                         }
 
                     }
+                    
                 }
-                .listRowBackground(Color.lffD1E)
+                .scrollContentBackground(.hidden)
                 .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .listStyle(.insetGrouped)
             }
         }
-        .background(.lf6D01)
     }
 }
 
