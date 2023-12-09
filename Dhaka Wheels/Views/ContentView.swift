@@ -12,25 +12,31 @@ struct ContentView: View {
     @State private var selectedTab = 0
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            Group {
-                SearchView()
-                    .tabItem {
-                        Label("Search", systemImage: "magnifyingglass")
-                    }
-                    .tag(0)
+        NavigationStack {
+            ZStack {
+                TabView(selection: $selectedTab) {
+                    Group {
+                        SearchView()
+                            .tabItem {
+                                Label("Search", systemImage: "magnifyingglass")
+                            }
+                            .tag(0)
 
-                AllBustList()
-                    .tabItem {
-                        Label("All Bus", systemImage: "list.bullet.circle.fill")
+                        AllBustList()
+                            .tabItem {
+                                Label("All Bus", systemImage: "list.bullet.circle.fill")
+                            }
+                            .tag(1)
                     }
-                    .tag(1)
+                    .environmentObject(firebaseData)
+                    .highPriorityGesture(DragGesture().onEnded { handleSwipe(translation: $0.translation.width) })
+                }
+                .onAppear {
+                    UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+                }
             }
-            .environmentObject(firebaseData)
-            .highPriorityGesture(DragGesture().onEnded { handleSwipe(translation: $0.translation.width) })
-        }
-        .onAppear {
-            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+            .navigationTitle("Dhaka wheels")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

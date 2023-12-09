@@ -13,9 +13,6 @@ struct BusDetailView: View {
 
     var body: some View {
         VStack {
-            Text(bus.name)
-                .font(.largeTitle)
-
             HStack {
                 VStack {
                     AsyncImage(url: URL(string: bus.imageUrl)) { image in

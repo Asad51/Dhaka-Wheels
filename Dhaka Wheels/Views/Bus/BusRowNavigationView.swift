@@ -17,6 +17,8 @@ struct BusRowNavigationView: View {
             NavigationLink {
                 BusDetailView(bus: bus)
                     .toolbar(.hidden, for: .tabBar)
+                    .navigationTitle(bus.name)
+                    .navigationBarBackButtonTitle("Back")
             } label: {
                 EmptyView()
             }
