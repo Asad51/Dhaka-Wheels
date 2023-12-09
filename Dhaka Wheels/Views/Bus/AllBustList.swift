@@ -63,10 +63,7 @@ struct AllBustList: View {
     @State private var searchText: String = ""
 
     var body: some View {
-        NavigationStack {
-            BusList(buses: firebaseData.buses, searchText: searchText)
-        }
-        .searchable(text: $searchText)
+        BusList(buses: firebaseData.buses, searchText: searchText)
     }
 }
 

@@ -26,6 +26,21 @@ struct Dhaka_WheelsApp: App {
 
     init() {
         DWLogger.initialize()
+
+        // Change NavigationStack appearence
+        // Ref: https://www.hackingwithswift.com/forums/swiftui/custom-font-in-navigation-title-and-back-button/22989/23006
+        let appearence = UINavigationBarAppearance()
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 24)
+        ]
+
+        appearence.titleTextAttributes = attributes
+        appearence.largeTitleTextAttributes = attributes
+        appearence.backgroundColor = .secondarySystemBackground
+
+        UINavigationBar.appearance().standardAppearance = appearence
+        UINavigationBar.appearance().compactAppearance = appearence
+        UINavigationBar.appearance().scrollEdgeAppearance = appearence
     }
 
     var body: some Scene {

@@ -43,6 +43,7 @@
 		DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
 		DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */; };
 		DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */; };
+		DCB123B22B2384AD00091644 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB123B12B2384AD00091644 /* CommonUtility.swift */; };
 		DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */; };
 		DCC2FF6D2AD842E900E9834A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC2FF6C2AD842E900E9834A /* ContentView.swift */; };
 		DCC2FF6F2AD842EA00E9834A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC2FF6E2AD842EA00E9834A /* Assets.xcassets */; };
@@ -113,6 +114,8 @@
 		DCE6CD912AF0214500468C0D /* DWLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */; };
 		DCE6CD932AF0238F00468C0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD922AF0238F00468C0D /* Logging.swift */; };
 		DCE6CD942AF0238F00468C0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE6CD922AF0238F00468C0D /* Logging.swift */; };
+		DCF3A2FD2B24EB5100BD8303 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3A2FC2B24EB5100BD8303 /* View+Extensions.swift */; };
+		DCF3A3002B24EDBB00BD8303 /* NavigationBarBackButtonTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3A2FF2B24EDBB00BD8303 /* NavigationBarBackButtonTitleModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +128,7 @@
 		DC689C812ADB2F6100F03E07 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
 		DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoppage.swift; sourceTree = "<group>"; };
 		DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoppage.swift; sourceTree = "<group>"; };
+		DCB123B12B2384AD00091644 /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		DCBD12602AE2D5C600AAF62F /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		DCBD12612AE2D72B00AAF62F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DCC2FF672AD842E900E9834A /* Dhaka Wheels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dhaka Wheels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,8 @@
 		DCE3FE6A2AE196AC00CD1627 /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		DCE6CD8F2AF0214500468C0D /* DWLogFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLogFormatter.swift; sourceTree = "<group>"; };
 		DCE6CD922AF0238F00468C0D /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		DCF3A2FC2B24EB5100BD8303 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		DCF3A2FF2B24EDBB00BD8303 /* NavigationBarBackButtonTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarBackButtonTitleModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +324,7 @@
 				DCC2FF6A2AD842E900E9834A /* Dhaka_WheelsApp.swift */,
 				DCC2FF782AD844AE00E9834A /* Views */,
 				DCC2FF822AD858C900E9834A /* Models */,
+				DCF3A2FE2B24ED9900BD8303 /* Modifiers */,
 				DCCFA2872AE044D600D2F741 /* Services */,
 				DCCFA2922AE0594900D2F741 /* Extensions */,
 				DCC2FF7F2AD8500000E9834A /* Resources */,
@@ -379,6 +386,7 @@
 			children = (
 				DCCFA2932AE0596400D2F741 /* String+Extensions.swift */,
 				DCCCE9C32AED9427001EFA95 /* Color+Extensions.swift */,
+				DCF3A2FC2B24EB5100BD8303 /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +396,7 @@
 			children = (
 				DCE6CD8E2AF0212200468C0D /* Logger */,
 				DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */,
+				DCB123B12B2384AD00091644 /* CommonUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -430,6 +439,14 @@
 				DCE6CD922AF0238F00468C0D /* Logging.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		DCF3A2FE2B24ED9900BD8303 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				DCF3A2FF2B24EDBB00BD8303 /* NavigationBarBackButtonTitleModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,6 +693,7 @@
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */,
 				DCCC6C222ADAAC2700E95C2D /* Stoppage.swift in Sources */,
+				DCF3A2FD2B24EB5100BD8303 /* View+Extensions.swift in Sources */,
 				DCE259352B1F808000E05CE0 /* BusRowNavigationView.swift in Sources */,
 				DCD73E262AEC2C3600B76128 /* FirebaseData.swift in Sources */,
 				DCC2FF872AD85A3E00E9834A /* Constants.swift in Sources */,
@@ -683,10 +701,12 @@
 				DCE6CD932AF0238F00468C0D /* Logging.swift in Sources */,
 				DCCFA2942AE0596400D2F741 /* String+Extensions.swift in Sources */,
 				DCCCE9C42AED9427001EFA95 /* Color+Extensions.swift in Sources */,
+				DCF3A3002B24EDBB00BD8303 /* NavigationBarBackButtonTitleModifier.swift in Sources */,
 				DCCFA2972AE061E900D2F741 /* SuggestionMenuView.swift in Sources */,
 				DCC2FF892AD85D4E00E9834A /* BusDetailView.swift in Sources */,
 				DCCC6C202ADA996C00E95C2D /* MapView.swift in Sources */,
 				DCE3FE682AE195CB00CD1627 /* SuggestionRow.swift in Sources */,
+				DCB123B22B2384AD00091644 /* CommonUtility.swift in Sources */,
 				DCC2FF6B2AD842E900E9834A /* Dhaka_WheelsApp.swift in Sources */,
 				DCCC6C1E2ADA945700E95C2D /* AllBustList.swift in Sources */,
 			);

@@ -22,138 +22,136 @@ struct SearchView: View {
 
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
-            NavigationStack {
-                ZStack {
-                    Color.lf6D01
-                        .ignoresSafeArea()
+            Color.lf6D01
+                .ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    // MARK: Search fields' labels
+                    VStack {
+                        Image(systemName: "figure.wave")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 30)
+                            .padding(.trailing, 5)
 
-                    VStack(alignment: .leading) {
-                        HStack {
-                            VStack {
-                                Image(systemName: "figure.wave")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 30)
-                                    .padding(.trailing, 5)
+                        Spacer()
 
-                                Spacer()
+                        Image(systemName: "arrow.up.arrow.down")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 30)
+                            .padding(.trailing, 5)
 
-                                Image(systemName: "arrow.up.arrow.down")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 30)
-                                    .padding(.trailing, 5)
+                        Spacer()
 
-                                Spacer()
+                        Image(systemName: "mappin.and.ellipse")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 30)
+                            .padding(.trailing, 5)
+                    }
 
-                                Image(systemName: "mappin.and.ellipse")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 30)
-                                    .padding(.trailing, 5)
+                    VStack {
+                        // MARK: - Starting location textfield
+                        GeometryReader { reader in
+                            let frame = reader.frame(in: CoordinateSpace.global)
+                            TextField("Starting point", text: $startingLocation, onEditingChanged: { editing in
+                                sourceStoppageEditing = editing
+                            })
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.lf6D01)
+                            )
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.gray)
                             }
-
-                            VStack {
-                                // MARK: - Starting location textfield
-                                GeometryReader { reader in
-                                    let frame = reader.frame(in: CoordinateSpace.global)
-                                    TextField("Starting point", text: $startingLocation, onEditingChanged: { editing in
-                                        sourceStoppageEditing = editing
-                                    })
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.lf6D01)
-                                    )
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray)
-                                    }
-                                    .onTapGesture {
-                                        suggestionMenuYOffset = frame.origin.y
-                                    }
-                                    .onChange(of: startingLocation) {
-                                        filterBuses()
-                                    }
-                                    .onChange(of: startingStoppage) {
-                                        startingLocation = startingStoppage?.title ?? startingLocation
-                                    }
-                                }
-
-                                Spacer()
-
-                                // MARK: - Ending location textfield
-                                GeometryReader { reader in
-                                    let frame = reader.frame(in: CoordinateSpace.global)
-                                    TextField("Ending point", text: $endingLocation, onEditingChanged: { editing in
-                                        destinationStoppageEditing = editing
-                                    })
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .fill(Color.lf6D01)
-                                    )
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(.gray)
-                                    }
-                                    .onTapGesture {
-                                        suggestionMenuYOffset = frame.origin.y
-                                    }
-                                    .onChange(of: endingLocation) {
-                                        filterBuses()
-                                    }
-                                    .onChange(of: destinationStoppage) {
-                                        endingLocation = destinationStoppage?.title ?? endingLocation
-                                    }
-                                }
+                            .onTapGesture {
+                                suggestionMenuYOffset = frame.origin.y
                             }
-                        }
-                        .frame(height: 120)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.lffD1E)
-                        )
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(.gray.opacity(0.8), lineWidth: 2)
-                        }
-                        .padding()
-
-                        if filteredBuses.isEmpty {
-                            if startingLocation.isEmpty || endingLocation.isEmpty {
-                                Text("Enter starting and ending stoppages to find bus.")
-                                    .font(.title2)
-                                    .multilineTextAlignment(.center)
-                                    .foregroundStyle(.teal)
-                                    .padding()
-                            } else {
-                                Text("No buses found.")
-                                    .font(.title2)
-                                    .foregroundStyle(.red)
-                                    .padding()
+                            .onChange(of: startingLocation) {
+                                filterBuses()
                             }
-                        } else {
-                            Group {
-                                Text("Search results")
-                                    .font(.title2)
-                                Divider()
+                            .onChange(of: startingStoppage) {
+                                startingLocation = startingStoppage?.title ?? startingLocation
                             }
-                            .padding(.horizontal, 10)
-
-                            // MARK: - Search results
-                            List(filteredBuses, id: \.self) { bus in
-                                BusRowNavigationView(bus: bus)
-                            }
-                            .scrollContentBackground(.hidden)
-                            .listStyle(.insetGrouped)
                         }
 
                         Spacer()
+
+                        // MARK: - Ending location textfield
+                        GeometryReader { reader in
+                            let frame = reader.frame(in: CoordinateSpace.global)
+                            TextField("Ending point", text: $endingLocation, onEditingChanged: { editing in
+                                destinationStoppageEditing = editing
+                            })
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.lf6D01)
+                            )
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.gray)
+                            }
+                            .onTapGesture {
+                                suggestionMenuYOffset = frame.origin.y
+                            }
+                            .onChange(of: endingLocation) {
+                                filterBuses()
+                            }
+                            .onChange(of: destinationStoppage) {
+                                endingLocation = destinationStoppage?.title ?? endingLocation
+                            }
+                        }
                     }
                 }
+                .frame(height: 120)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.lffD1E)
+                )
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.gray.opacity(0.8), lineWidth: 2)
+                }
+                .padding()
+
+                if filteredBuses.isEmpty {
+                    if startingLocation.isEmpty || endingLocation.isEmpty {
+                        Text("Enter starting and ending stoppages to find bus.")
+                            .font(.title2)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.teal)
+                            .padding()
+                    } else {
+                        Text("No buses found.")
+                            .font(.title2)
+                            .foregroundStyle(.red)
+                            .padding()
+                    }
+                } else {
+                    // MARK: - Search results
+                    Group {
+                        Text("Search results")
+                            .font(.title2)
+                        Divider()
+                    }
+                    .padding(.horizontal, 10)
+
+                    List(filteredBuses, id: \.self) { bus in
+                        BusRowNavigationView(bus: bus)
+                    }
+                    .scrollContentBackground(.hidden)
+                    .listStyle(.insetGrouped)
+                }
+
+                Spacer()
             }
+
 
             // MARK: - Suggestion menu
             if showSuggestions() {
