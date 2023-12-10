@@ -69,7 +69,7 @@ struct SearchView: View {
                                     .stroke(.gray)
                             }
                             .onTapGesture {
-                                suggestionMenuYOffset = frame.origin.y
+                                suggestionMenuYOffset = frame.origin.y + frame.height
                             }
                             .onChange(of: startingLocation) {
                                 filterBuses()
@@ -97,7 +97,7 @@ struct SearchView: View {
                                     .stroke(.gray)
                             }
                             .onTapGesture {
-                                suggestionMenuYOffset = frame.origin.y
+                                suggestionMenuYOffset = frame.origin.y + frame.height
                             }
                             .onChange(of: endingLocation) {
                                 filterBuses()
@@ -171,6 +171,7 @@ struct SearchView: View {
                             .shadow(color: .l00Dff.opacity(0.5), radius: 10)
                             .padding(.horizontal, 30)
                     }
+                    .ignoresSafeArea()
                 }
             }
         }
