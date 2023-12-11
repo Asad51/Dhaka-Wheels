@@ -29,27 +29,15 @@ struct SearchView: View {
                 HStack {
                     // MARK: Search fields' labels
                     VStack {
-                        Image(systemName: "figure.wave")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 30)
-                            .padding(.trailing, 5)
+                        SearchViewLabelImage(systemName: "figure.wave")
 
                         Spacer()
 
-                        Image(systemName: "arrow.up.arrow.down")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 30)
-                            .padding(.trailing, 5)
+                        SearchViewLabelImage(systemName: "arrow.up.arrow.down")
 
                         Spacer()
 
-                        Image(systemName: "mappin.and.ellipse")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 30)
-                            .padding(.trailing, 5)
+                        SearchViewLabelImage(systemName: "mappin.and.ellipse")
                     }
 
                     VStack {
@@ -59,18 +47,7 @@ struct SearchView: View {
                             TextField("Starting point", text: $startingLocation, onEditingChanged: { editing in
                                 sourceStoppageEditing = editing
                             })
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.lf6D01)
-                            )
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray)
-                            }
-                            .onTapGesture {
-                                suggestionMenuYOffset = frame.origin.y + frame.height
-                            }
+                            .modifier(SearchFieldModifier(suggestionMenuYOffset: $suggestionMenuYOffset, frame: frame))
                             .onChange(of: startingLocation) {
                                 filterBuses()
                             }
@@ -87,18 +64,7 @@ struct SearchView: View {
                             TextField("Ending point", text: $endingLocation, onEditingChanged: { editing in
                                 destinationStoppageEditing = editing
                             })
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.lf6D01)
-                            )
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray)
-                            }
-                            .onTapGesture {
-                                suggestionMenuYOffset = frame.origin.y + frame.height
-                            }
+                            .modifier(SearchFieldModifier(suggestionMenuYOffset: $suggestionMenuYOffset, frame: frame))
                             .onChange(of: endingLocation) {
                                 filterBuses()
                             }
@@ -176,7 +142,10 @@ struct SearchView: View {
             }
         }
     }
+}
 
+// MARK: - Methods
+extension SearchView {
     private func showSuggestions() -> Bool {
         return sourceStoppageEditing || destinationStoppageEditing
     }
@@ -196,11 +165,12 @@ struct SearchView: View {
     }
 
     private func filterBuses() {
-        filteredBuses = firebaseData.buses.filter { contains(stoppages: $0.stoppages) }
+        filteredBuses = firebaseData.buses.filter { includes(stoppages: $0.stoppages) }
     }
 
-    private func contains(stoppages: [Stoppage]) -> Bool {
-        return stoppages.contains(where: { $0.name.caseInsensitiveEqual(startingLocation) }) && stoppages.contains(where: { $0.name.caseInsensitiveEqual(endingLocation) })
+    private func includes(stoppages: [Stoppage]) -> Bool {
+        return stoppages.contains { $0.name.caseInsensitiveEqual(startingLocation) }
+        && stoppages.contains { $0.name.caseInsensitiveEqual(endingLocation) }
     }
 }
 
