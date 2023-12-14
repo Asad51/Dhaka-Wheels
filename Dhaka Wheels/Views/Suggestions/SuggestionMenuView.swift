@@ -32,6 +32,7 @@ struct SuggestionMenuView: View {
                 }
             }
             .frame(height: suggestionRowHeight * Double(suggestions.count > 5 ? 5 : suggestions.count))
+            .animation(.smooth(duration: 0.2), value: suggestions)
         }
         .padding(10)
         .background(.lffD1E)

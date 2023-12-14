@@ -22,9 +22,9 @@ struct ContentView: View {
                             }
                             .tag(0)
 
-                        AllBustList()
+                        AllBusList()
                             .tabItem {
-                                Label("All Bus", systemImage: "list.bullet.circle.fill")
+                                Label("Bus list", systemImage: "list.bullet.circle.fill")
                             }
                             .tag(1)
                     }
