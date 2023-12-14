@@ -165,7 +165,9 @@ extension SearchView {
     }
 
     private func filterBuses() {
-        filteredBuses = firebaseData.buses.filter { includes(stoppages: $0.stoppages) }
+        withAnimation(.smooth(duration: 0.2)) {
+            filteredBuses = firebaseData.buses.filter { includes(stoppages: $0.stoppages) }
+        }
     }
 
     private func includes(stoppages: [Stoppage]) -> Bool {
