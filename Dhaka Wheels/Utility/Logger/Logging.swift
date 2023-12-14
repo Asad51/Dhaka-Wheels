@@ -28,8 +28,6 @@ import CocoaLumberjackSwift
 ///   - ddlog: DDLog instance reference.
 func DWLogError(_ message: Any, level: DDLogLevel = .error, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, tag: Any? = nil, asynchronous async: Bool = false, ddlog: DDLog = .sharedInstance) {
 
-    
-
     CocoaLumberjackSwift.DDLogError(message, level: level, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
 }
 
@@ -50,6 +48,7 @@ func DWLogError(_ message: Any, level: DDLogLevel = .error, context: Int = 0, fi
 ///   - async: asynchronous logging option.
 ///   - ddlog: DDLog instance reference.
 func DWLogWarn(_ message: Any, level: DDLogLevel = .warning, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, tag: Any? = nil, asynchronous async: Bool = asyncLoggingEnabled, ddlog: DDLog = .sharedInstance) {
+
     CocoaLumberjackSwift.DDLogWarn(message, level: level, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
 }
 
@@ -71,6 +70,7 @@ func DWLogWarn(_ message: Any, level: DDLogLevel = .warning, context: Int = 0, f
 ///   - async: asynchronous logging option. 
 ///   - ddlog: DDLog instance reference. 
 func DWLogInfo(_ message: Any = "", level: DDLogLevel = .info, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, tag: Any? = nil, asynchronous async: Bool = asyncLoggingEnabled, ddlog: DDLog = .sharedInstance) {
+
     CocoaLumberjackSwift.DDLogInfo(message, level: level, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
 }
 
@@ -92,6 +92,7 @@ func DWLogInfo(_ message: Any = "", level: DDLogLevel = .info, context: Int = 0,
 ///   - async: asynchronous logging option. 
 ///   - ddlog: DDLog instance reference. 
 func DWLogDebug(_ message: Any = "", level: DDLogLevel = .debug, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, tag: Any? = nil, asynchronous async: Bool = asyncLoggingEnabled, ddlog: DDLog = .sharedInstance) {
+
     CocoaLumberjackSwift.DDLogDebug(message, level: level, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
 }
 
@@ -113,5 +114,6 @@ func DWLogDebug(_ message: Any = "", level: DDLogLevel = .debug, context: Int = 
 ///   - async: asynchronous logging option. 
 ///   - ddlog: DDLog instance reference. 
 func DWLogVerbose(_ message: Any = "", level: DDLogLevel = .verbose, context: Int = 0, file: StaticString = #file, function: StaticString = #function, line: UInt = #line, tag: Any? = nil, asynchronous async: Bool = asyncLoggingEnabled, ddlog: DDLog = .sharedInstance) {
+    
     CocoaLumberjackSwift.DDLogVerbose(message, level: level, context: context, file: file, function: function, line: line, tag: tag, asynchronous: async, ddlog: ddlog)
 }
