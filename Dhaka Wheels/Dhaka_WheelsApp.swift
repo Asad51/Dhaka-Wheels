@@ -27,7 +27,21 @@ struct Dhaka_WheelsApp: App {
     init() {
         DWLogger.initialize()
 
-        // Change NavigationStack appearence
+        changeNavigationBarAppearence()
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentObject(firebaseData)
+                .task {
+                    await firebaseData.fetchData()
+                }
+        }
+    }
+
+    private func changeNavigationBarAppearence() {
+        // Change NavigationStack appearence on start up
         // Ref: https://www.hackingwithswift.com/forums/swiftui/custom-font-in-navigation-title-and-back-button/22989/23006
         let appearence = UINavigationBarAppearance()
         let attributes: [NSAttributedString.Key: Any] = [
@@ -41,15 +55,5 @@ struct Dhaka_WheelsApp: App {
         UINavigationBar.appearance().standardAppearance = appearence
         UINavigationBar.appearance().compactAppearance = appearence
         UINavigationBar.appearance().scrollEdgeAppearance = appearence
-    }
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(firebaseData)
-                .task {
-                    await firebaseData.fetchData()
-                }
-        }
     }
 }

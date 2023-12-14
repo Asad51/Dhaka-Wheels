@@ -18,7 +18,7 @@ struct Constants {
             serviceType: "Sitting",
             stoppages: [
                 Stoppage(id: "InvalidId1", name: "Moghbazar", latitude: 23.74847198433284, longitude: 90.40270312675771),
-                Stoppage(id: "InvalidId1", name: "Kawran Bazar", latitude: 23.74993366314999, longitude: 90.39323594127315)
+                Stoppage(id: "InvalidId2", name: "Kawran Bazar", latitude: 23.74993366314999, longitude: 90.39323594127315)
             ]
         )
     ]

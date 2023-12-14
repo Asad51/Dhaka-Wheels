@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-    // Reference: https://stackoverflow.com/questions/60241552/swiftui-navigationbar-height
-
+// Reference: https://stackoverflow.com/questions/60241552/swiftui-navigationbar-height
 struct NavbarAccessor: UIViewControllerRepresentable {
     var callback: (UINavigationBar) -> Void
     private let proxyController = ViewController()
