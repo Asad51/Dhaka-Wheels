@@ -75,13 +75,23 @@ struct AllBusList: View {
 
                 // MARK: - Bus list
                 if isSearching {
+                    if filteredBuses.isEmpty {
+                        ContentUnavailableView("No bus found", systemImage: "bus")
+                            .animation(.smooth, value: filteredBuses)
+                    }
+
                     List(filteredBuses.sorted { $0.name < $1.name }) { bus in
                         BusRowNavigationView(bus: bus)
                     }
                     .scrollContentBackground(.hidden)
                     .listStyle(.insetGrouped)
                     .animation(.smooth, value: filteredBuses)
+
                 } else {
+                    if groupedBuses.isEmpty {
+                        ContentUnavailableView("No bus found", systemImage: "bus")
+                    }
+
                     List {
                         ForEach(groupedBuses.sorted(by: { $0.0 < $1.0 }), id: \.key) { key, buses in
                             Section {
