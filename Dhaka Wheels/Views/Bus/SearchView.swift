@@ -94,10 +94,7 @@ struct SearchView: View {
                             .foregroundStyle(.teal)
                             .padding()
                     } else {
-                        Text("No buses found.")
-                            .font(.title2)
-                            .foregroundStyle(.red)
-                            .padding()
+                        ContentUnavailableView("No bus found", systemImage: "bus")
                     }
                 } else {
                     // MARK: - Search results
