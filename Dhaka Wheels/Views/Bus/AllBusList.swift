@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AllBusList: View {
-    @EnvironmentObject private var firebaseData: FirebaseData
+    @Environment(\.modelContext) private var context
+
+    @Query(sort: \Bus.name) private var busList: [Bus]
+    @Query(sort: \Stoppage.name) private var stoppages: [Stoppage]
 
     @FocusState private var focusedOnSearch: Bool
     @State private var searchText: String = ""
@@ -16,14 +20,14 @@ struct AllBusList: View {
 
     private var filteredBuses: [Bus] {
         if searchText.isEmpty {
-            return firebaseData.buses
+            return busList
         }
 
-        return firebaseData.buses.filter { $0.name.caseInsensitiveContains(searchText) }
+        return busList.filter { $0.name.caseInsensitiveContains(searchText) }
     }
 
     private var groupedBuses: Dictionary<String, [Bus]> {
-        return Dictionary(grouping: firebaseData.buses, by: { $0.name.first?.isLetter == true ? String($0.name.first!) : "#" })
+        return Dictionary(grouping: busList, by: { $0.name.first?.isLetter == true ? String($0.name.first!) : "#" })
     }
 
     var body: some View {
@@ -115,5 +119,5 @@ struct AllBusList: View {
 
 #Preview {
     AllBusList()
-        .environmentObject(FirebaseData())
+        .modelContainer(for: [Bus.self, Stoppage.self])
 }

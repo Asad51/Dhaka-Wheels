@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    @EnvironmentObject private var firebaseData: FirebaseData
+    @Environment(\.modelContext) private var context
     @State private var selectedTab = 0
 
     var body: some View {
@@ -28,7 +29,6 @@ struct ContentView: View {
                             }
                             .tag(1)
                     }
-                    .environmentObject(firebaseData)
                     .highPriorityGesture(DragGesture().onEnded { handleSwipe(translation: $0.translation.width) })
                 }
                 .onAppear {
@@ -53,5 +53,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(FirebaseData())
+        .modelContainer(for: [Bus.self])
 }
