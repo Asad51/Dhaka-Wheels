@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SearchView: View {
-    @EnvironmentObject private var firebaseData: FirebaseData
+    @Environment(\.modelContext) private var context
+
+    @Query(sort: \Bus.name) private var busList: [Bus]
+    @Query(sort: \Stoppage.name) private var stoppages: [Stoppage]
 
     @State private var startingLocation: String = ""
     @State private var endingLocation: String = ""
@@ -150,12 +154,12 @@ extension SearchView {
     private func createSuggestions() -> [Suggestion] {
         let filterText = sourceStoppageEditing ? startingLocation : endingLocation
 
-        return firebaseData.stoppages
-            .filter { $0.value.name.caseInsensitiveContains(filterText) }
+        return stoppages
+            .filter { $0.name.caseInsensitiveContains(filterText) }
             .map {
                 Suggestion(
-                    id: $0.key,
-                    title: $0.value.name,
+                    id: $0.id,
+                    title: $0.name,
                     subTitle: ""
                 )
             }
@@ -163,7 +167,7 @@ extension SearchView {
 
     private func filterBuses() {
         withAnimation(.smooth(duration: 0.2)) {
-            filteredBuses = firebaseData.buses.filter { includes(stoppages: $0.stoppages) }
+            filteredBuses = busList.filter { includes(stoppages: $0.stoppages) }
         }
     }
 
@@ -175,5 +179,5 @@ extension SearchView {
 
 #Preview {
     SearchView()
-        .environmentObject(FirebaseData())
+        .modelContainer(for: [Bus.self, Stoppage.self])
 }

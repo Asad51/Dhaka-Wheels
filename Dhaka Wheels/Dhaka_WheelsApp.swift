@@ -6,6 +6,7 @@
 //
 
 import FirebaseCore
+import SwiftData
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -24,8 +25,19 @@ struct Dhaka_WheelsApp: App {
     
     @StateObject private var firebaseData = FirebaseData()
 
+    private var container: ModelContainer
+
     init() {
         DWLogger.initialize()
+
+        let schema = Schema([Bus.self])
+        let config = ModelConfiguration("Bus", schema: schema)
+
+        do {
+            container = try ModelContainer(for: Bus.self, configurations: config)
+        } catch {
+            fatalError("Couldn't configure swift-data")
+        }
 
         changeNavigationBarAppearence()
     }
@@ -33,16 +45,16 @@ struct Dhaka_WheelsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(firebaseData)
+                .modelContainer(container)
                 .task {
                     await firebaseData.fetchData()
                 }
         }
     }
 
+    // Change NavigationStack appearence on start up
+    // Ref: https://www.hackingwithswift.com/forums/swiftui/custom-font-in-navigation-title-and-back-button/22989/23006
     private func changeNavigationBarAppearence() {
-        // Change NavigationStack appearence on start up
-        // Ref: https://www.hackingwithswift.com/forums/swiftui/custom-font-in-navigation-title-and-back-button/22989/23006
         let appearence = UINavigationBarAppearance()
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 24)
