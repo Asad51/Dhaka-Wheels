@@ -41,6 +41,7 @@
 		DC689C7C2ADB239E00F03E07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCD8B5D82ADB0AA20039F12F /* GoogleService-Info.plist */; };
 		DC689C7E2ADB254800F03E07 /* AddBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC689C7D2ADB254800F03E07 /* AddBus.swift */; };
 		DC689C842ADB2FE200F03E07 /* Stoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC6C212ADAAC2700E95C2D /* Stoppage.swift */; };
+		DC81DB962B79025B00FB2636 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81DB952B79025B00FB2636 /* Reachability.swift */; };
 		DCABFED52ADBAE42004DD6CF /* SelectedStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */; };
 		DCABFEDB2ADBCCA7004DD6CF /* AddStoppage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */; };
 		DCB123B22B2384AD00091644 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB123B12B2384AD00091644 /* CommonUtility.swift */; };
@@ -128,6 +129,7 @@
 		DC689C412ADB229000F03E07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC689C7D2ADB254800F03E07 /* AddBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBus.swift; sourceTree = "<group>"; };
 		DC689C812ADB2F6100F03E07 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseData.swift; sourceTree = "<group>"; };
+		DC81DB952B79025B00FB2636 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DCABFED42ADBAE42004DD6CF /* SelectedStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoppage.swift; sourceTree = "<group>"; };
 		DCABFEDA2ADBCCA7004DD6CF /* AddStoppage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoppage.swift; sourceTree = "<group>"; };
 		DCB123B12B2384AD00091644 /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				DCE6CD8E2AF0212200468C0D /* Logger */,
 				DCDD02BC2AE8573F00B59B26 /* NavbarAccessor.swift */,
 				DCB123B12B2384AD00091644 /* CommonUtility.swift */,
+				DC81DB952B79025B00FB2636 /* Reachability.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				DCD8B5DA2ADB0B890039F12F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DCABFED62ADBB932004DD6CF /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
 				DCDD02A62AE78DF100B59B26 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				DC81DB972B79225A00FB2636 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = DCC2FF682AD842E900E9834A /* Products */;
 			projectDirPath = "";
@@ -696,6 +700,7 @@
 				DCE6CD902AF0214500468C0D /* DWLogFormatter.swift in Sources */,
 				DCC2FF7E2AD84E1E00E9834A /* BusRow.swift in Sources */,
 				DCDD02AF2AE78E4500B59B26 /* DWLogger.swift in Sources */,
+				DC81DB962B79025B00FB2636 /* Reachability.swift in Sources */,
 				DCCF91582B278B1D00290117 /* SearchViewLabelImage.swift in Sources */,
 				DCC2FF7C2AD84A3500E9834A /* SearchView.swift in Sources */,
 				DCE3FE6B2AE196AC00CD1627 /* Suggestion.swift in Sources */,
@@ -1009,6 +1014,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DC81DB972B79225A00FB2636 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
 		DCABFED62ADBB932004DD6CF /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid.git";
