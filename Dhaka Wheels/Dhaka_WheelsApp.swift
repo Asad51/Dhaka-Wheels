@@ -9,8 +9,9 @@ import FirebaseCore
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
+    {
         FirebaseApp.configure()
 
         return true
@@ -21,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Dhaka_WheelsApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+
     @StateObject private var firebaseData = FirebaseData()
 
     init() {
@@ -34,9 +35,6 @@ struct Dhaka_WheelsApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(firebaseData)
-                .task {
-                    await firebaseData.fetchData()
-                }
         }
     }
 
@@ -45,7 +43,7 @@ struct Dhaka_WheelsApp: App {
         // Ref: https://www.hackingwithswift.com/forums/swiftui/custom-font-in-navigation-title-and-back-button/22989/23006
         let appearence = UINavigationBarAppearance()
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 24)
+            .font: UIFont.systemFont(ofSize: 24),
         ]
 
         appearence.titleTextAttributes = attributes

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var firebaseData: FirebaseData
+
     @State private var selectedTab = 0
+    @State private var displayConnectionAlert = false
+
+    var reachability = Reachability.shared
 
     var body: some View {
         NavigationStack {
@@ -37,6 +41,22 @@ struct ContentView: View {
             }
             .navigationTitle("Dhaka wheels")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            reachability.startMonitoring()
+        }
+        .onReceive(reachability.isNetworkConnected, perform: { connected in
+            if connected {
+                Task {
+                    await firebaseData.fetchData()
+                }
+                reachability.stopMonitoring()
+            } else {
+                displayConnectionAlert = true
+            }
+        })
+        .alert("Connection Required", isPresented: $displayConnectionAlert) {} message: {
+            Text("Please connect to internet to download data from the server.")
         }
     }
 
