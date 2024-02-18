@@ -424,7 +424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Set git path\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Enter project directory\ncd $SRCROOT\n\n# Run SwiftFormat with git specifying git directory(must)\nif which swiftformat >/dev/null; then\n    git --git-dir .git diff --name-only | grep -e '\\(.*\\).swift$' | while read fileName; do\n        swiftformat \"${fileName}\" --lint --swiftversion 5.7.2;\n    done\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\nexit 0\n";
+			shellScript = "# Set git path\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# Enter project directory\ncd $SRCROOT\n\n# Run SwiftFormat with git specifying git directory(must)\nif which swiftformat >/dev/null; then\n    git --git-dir .git diff --name-only | grep -e '\\(.*\\).swift$' | while read fileName; do\n        swiftformat \"${fileName}\" --lint;\n    done\nelse\n    echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\nexit 0\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
