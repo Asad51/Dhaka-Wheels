@@ -3,12 +3,7 @@
 
 Dhaka Wheels is your go-to solution for finding local bus routes in Dhaka, Bangladesh. This iOS app is designed to make your daily commute easier by providing real-time information on bus routes, schedules, and stops within the city.
 
-<img src="./Screenshots/Suggestions.png" height="400px" style="border: 2px solid #555;">
-<img src="./Screenshots/Search_Results.png" height="400px" style="border: 2px solid #555;">
-<img src="./Screenshots/Bus_list.png" height="400px" style="border: 2px solid #555;">
-<img src="./Screenshots/Filtered_Bus_List.png" height="400px" style="border: 2px solid #555;">
-<img src="./Screenshots/Routes.png" height="400px" style="border: 2px solid #555;">
-<img src="./Screenshots/Routes_Map.png" height="400px" style="border: 2px solid #555;">
+<img src="./Screenshots/Suggestions.png" height="400px" style="border: 2px solid #555;"> <img src="./Screenshots/Search_Results.png" height="400px" style="border: 2px solid #555;"> <img src="./Screenshots/Bus_list.png" height="400px" style="border: 2px solid #555;"> <img src="./Screenshots/Filtered_Bus_List.png" height="400px" style="border: 2px solid #555;"> <img src="./Screenshots/Routes.png" height="400px" style="border: 2px solid #555;"> <img src="./Screenshots/Routes_Map.png" height="400px" style="border: 2px solid #555;">
 
 
 ### Getting Started
