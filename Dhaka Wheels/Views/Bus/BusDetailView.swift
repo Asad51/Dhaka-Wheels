@@ -49,7 +49,7 @@ struct BusDetailView: View {
                         .stroke(.gray, lineWidth: 2)
                 }
                 
-                HStack {
+                HStack(alignment: .center) {
                     Spacer()
                     Text("Routes")
                         .font(.title)
@@ -57,7 +57,7 @@ struct BusDetailView: View {
                         .foregroundStyle(.blue)
                     
                     Spacer()
-                    
+
                     NavigationLink {
                         MapView(stoppages: bus.stoppages)
                             .navigationTitle("Routes")
@@ -77,7 +77,12 @@ struct BusDetailView: View {
                     
                     Spacer()
                 }
-                
+
+                Rectangle()
+                    .fill(.gray)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 1)
+
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack {
                         ForEach(Array(bus.stoppages.enumerated()), id: \.element) { i, stoppage in
@@ -107,6 +112,7 @@ struct BusDetailView: View {
                 }
             }
             .padding()
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }
