@@ -1,5 +1,4 @@
 ##  Dhaka Wheels - Local Bus Finder
-![License](https://img.shields.io/badge/License-MIT-brightgreen.svg) ![Lang](https://img.shields.io/badge/Language-Swift-orange.svg) ![Xcode Build](https://github.com/dkhamsing/news/actions/workflows/xcodebuild-ios15.yml/badge.svg)
 
 Dhaka Wheels is your go-to solution for finding local bus routes in Dhaka, Bangladesh. This iOS app is designed to make your daily commute easier by providing real-time information on bus routes, schedules, and stops within the city.
 
