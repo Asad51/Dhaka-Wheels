@@ -20,7 +20,7 @@ struct MapView: View {
                     .tint(.blue)
             }
         }
-        .mapStyle(.hybrid(elevation: .flat))
+        .mapStyle(.standard)
         .mapControls {
             MapCompass()
             MapScaleView()
@@ -30,5 +30,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(stoppages: Constants.previewBuses[0].stoppages)
+    MapView(stoppages: Constants.previewStoppages)
 }

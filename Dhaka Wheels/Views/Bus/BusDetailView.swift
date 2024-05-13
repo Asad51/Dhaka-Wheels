@@ -98,7 +98,13 @@ struct BusDetailView: View {
                                 }
                                 
                                 Text(stoppage.name)
-                                
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 5)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(.brown.opacity(0.2))
+                                    )
+
                                 if i == bus.stoppages.count - 1 {
                                     Image(systemName: "mappin.and.ellipse")
                                         .padding(5)

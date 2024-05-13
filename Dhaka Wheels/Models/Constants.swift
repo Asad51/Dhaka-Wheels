@@ -23,6 +23,11 @@ struct Constants {
         )
     ]
 
+    static let previewStoppages: [Stoppage] = [
+        Stoppage(id: "Inavlid1", name: "Farmgate", latitude: 23.758149149120566, longitude: 90.39030732929935),
+        Stoppage(id: "Invalid2", name: "Kawran Bazar", latitude: 23.750457455293628, longitude: 90.39318624971828)
+    ]
+
     static let previewSuggestions: [Suggestion] = [
         Suggestion(id: "InvalidID1", title: "Suggestion 01", subTitle: "Suggestions sub text"),
         Suggestion(id: "InvalidID2", title: "Suggestion 02", subTitle: "Suggestions sub text")
